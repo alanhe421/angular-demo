@@ -1,0 +1,10 @@
+<div>不加选择器测试</div>
+<!--<ng-content  select=".all">-->
+
+<!--</ng-content>-->
+<hr>
+<div>选择器测试</div>
+<ng-content *ngIf="count>0" select=".row-a"></ng-content>
+<ng-content *ngIf="count>0" select=".row-b"></ng-content>
+
+
