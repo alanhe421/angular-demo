@@ -1,3 +1,7 @@
+header {
+    background-color: #222;
+}
+
 .active {
     background-color: red;
 }

@@ -14,6 +14,7 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {RouterModule, Routes} from "@angular/router";
 import {DocsComponent} from "./docs/docs.component";
+import {CardComponent} from "./docs/card/card.component";
 
 export function createTranslateLoader(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
         NodataComponent,
         HeaderComponent,
         FooterComponent,
-        DocsComponent
+        DocsComponent,
+        CardComponent
     ],
     imports: [
         BrowserModule,

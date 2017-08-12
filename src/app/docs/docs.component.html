@@ -1,3 +1,19 @@
-<p>
-  docs works!
-</p>
+<div class="container">
+    npm link is very similar to npm install -g except that instead of downloading the package from the repo, the just
+    cloned angular-cli/ folder becomes the global package. Additionally, this repository publishes several packages and
+    we use special logic to load all of them on development setups.
+
+    Any changes to the files in the angular-cli/ folder will immediately affect the global @angular/cli package,
+    allowing you to quickly test any changes you make to the cli project.
+</div>
+<h3>ng-content测试</h3>
+<div class="row">
+    <app-card class="col-md-3">
+        <div>hello world</div>
+        普通内容
+        <div class="card-block" card-body>
+            card-body内容
+        </div>
+    </app-card>
+</div>
+

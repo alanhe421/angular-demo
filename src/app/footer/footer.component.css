@@ -1,0 +1,10 @@
+footer {
+    line-height: 24px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 48px;
+    background-color: #1976d2;
+    color: #fafafa;
+    font-weight: 300;
+}
