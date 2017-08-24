@@ -5,13 +5,14 @@ import {RouterModule, Routes} from "@angular/router";
 const appRoutes: Routes = [
     {
         path: '',
-        component: ParentComponent
+        component: ParentComponent,
         // redirectTo: 'child',
-        // pathMatch: 'full'
-    },
-    // {path: 'home', loadChildren: './i18n/i18n.module#I18nModule'},
-    // {path: 'child', loadChildren: './child/child.module#ChildModule'},
-];
+        // pathMatch: 'full',
+        // children: [{
+        //     path: 'child',
+        //     loadChildren: '../child/child.module#ChildModule'
+        // }]
+    }];
 @NgModule({
     imports: [
         CommonModule,
