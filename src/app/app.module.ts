@@ -15,6 +15,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {RouterModule, Routes} from "@angular/router";
 import {DocsComponent} from "./docs/docs.component";
 import {CardComponent} from "./docs/card/card.component";
+import {HomeComponent} from "./home/home.component";
 
 export function createTranslateLoader(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -25,8 +26,8 @@ const appRoutes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
     },
-    // {path: 'home', loadChildren: './i18n/i18n.module#I18nModule'},
-    // {path: 'i18n', loadChildren: './i18n/i18n.module#I18nModule'},
+    {path: 'home', component: HomeComponent},
+    {path: 'parent', loadChildren: './parent/parent.module#ParentModule'},
     {path: 'docs', component: DocsComponent},
 ];
 @NgModule({
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
         HeaderComponent,
         FooterComponent,
         DocsComponent,
-        CardComponent
+        CardComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
