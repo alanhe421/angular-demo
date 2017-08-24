@@ -11,6 +11,6 @@ export const appRoutes: Routes = [
         pathMatch: 'full'
     },
     {path: 'home', component: HomeComponent},
-    {path: 'parent', loadChildren: './parent/parent.module#ParentModule'},
+    {path: 'parent', loadChildren: 'app/parent/parent.module#ParentModule'},
     {path: 'docs', component: DocsComponent},
 ];
