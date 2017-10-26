@@ -21,6 +21,11 @@ export const appRoutes: Routes = [
             path: 'parent',
             loadChildren: './parent/parent.module#ParentModule'
         },
+        {
+            path: 'news',
+            loadChildren: './news/news.module#NewsModule'
+        }
+        ,
 // children: [
 //     {
 //         path: 'security1',

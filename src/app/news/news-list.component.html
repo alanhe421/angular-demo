@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let item of items">
+        <a routerLink='../detail/{{item.id}}' [queryParams]="{title:item.title}">
+            {{item.title}}
+        </a>
+    </li>
+</ul>
