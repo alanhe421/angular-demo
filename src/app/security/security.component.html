@@ -1,12 +1,13 @@
 <p>
     security works!
 </p>
-<div [innerHTML]="sourcecode">
+<div [innerHTML]="sourcecode|safe:'html'">
 
 </div>
-
-
-<div>
-    bypassSecurityTrustHtml可以保证CSS正常执行
-
-</div>
+<!--<div [innerHTML]="jscode|safe:'script'">-->
+<!--</div>-->
+<ol>
+    <li>
+        bypassSecurityTrustHtml可以保证CSS正常执行,外链CSS也无问题,但JS不执行
+    </li>
+</ol>

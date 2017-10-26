@@ -2,6 +2,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {SecurityComponent} from "./security.component";
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
+import { SafePipe } from './safe.pipe';
 const pRoutes: Routes = [
     {
         path: '',
@@ -13,7 +14,7 @@ const pRoutes: Routes = [
         CommonModule,
         RouterModule.forChild(pRoutes),
     ],
-    declarations: [SecurityComponent]
+    declarations: [SecurityComponent, SafePipe]
 })
 export class SecurityModule {
 }

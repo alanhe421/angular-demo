@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
+import {Modal} from "./modal/modal";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    modal: Modal = new Modal();
 
-  ngOnInit() {
-  }
+    htmlSnippet = `<em class="highlight">hhwhqhwq</em>`;
+
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }

@@ -1,21 +1,6 @@
-import {Component, OnInit, SecurityContext} from "@angular/core";
-import {DomSanitizer} from "@angular/platform-browser";
+import {Component, OnInit} from "@angular/core";
 
-const HTML_TEST = `
-
-<html>
-<head>
-
-</head>
-<body>
-<h1 style="color: red">
-hello world
-</h1>
-<!--<script>-->
-<!--alert('hello world');-->
-<!--</script>-->
-</body>
-</html>
+const HTML_TEST = `<em class="highlight">hhwhqhwq</em>
 `;
 @Component({
     selector: 'app-security',
@@ -24,13 +9,14 @@ hello world
 })
 export class SecurityComponent implements OnInit {
 
-    sourcecode;
+    sourcecode: string;
 
-    constructor(private sanitizer: DomSanitizer) {
+    constructor() {
     }
 
     ngOnInit() {
-        this.sourcecode = this.sanitizer.bypassSecurityTrustHtml(HTML_TEST);
+        this.sourcecode = HTML_TEST;
+        // this.sanitizer.sanitize(SecurityContext.HTML, HTML_TEST)
         // this.sourcecode = this.sanitizer.sanitize(SecurityContext.SCRIPT, HTML_TEST);
         // this.sourcecode = this.sanitizer.bypassSecurityTrustScript(HTML_TEST);
     }

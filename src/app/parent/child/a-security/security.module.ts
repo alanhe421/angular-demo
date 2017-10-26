@@ -1,15 +1,11 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {ChildComponent} from "./child.component";
+import {SecurityComponent} from "./security.component";
 import {RouterModule, Routes} from "@angular/router";
 const cRoutes: Routes = [
     {
         path: '',
-        component: ChildComponent,
-    },
-    {
-        path: 'security',
-        loadChildren: './a-security/security.module#SecurityModule'
+        component: SecurityComponent,
     }
 ];
 @NgModule({
@@ -17,7 +13,7 @@ const cRoutes: Routes = [
         CommonModule,
         RouterModule.forChild(cRoutes)
     ],
-    declarations: [ChildComponent]
+    declarations: [SecurityComponent]
 })
-export class ChildModule {
+export class SecurityModule {
 }

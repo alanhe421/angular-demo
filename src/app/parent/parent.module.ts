@@ -5,17 +5,21 @@ import {RouterModule, Routes} from "@angular/router";
 const pRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'child',
+        redirectTo: 'security1',
         pathMatch: 'full'
     },
-    {
-        path: 'child',
-        loadChildren: './child/child.module#ChildModule'
-    }
     // {
-    //     path: 'hello',
-    //     component: ParentComponent,
+    //     path: 'child',
+    //     loadChildren: './child/child.module#ChildModule'
     // }
+    {
+        path: 'security1',
+        loadChildren: '../security/security.module#SecurityModule'
+    },
+    {
+        path: 'security2',
+        loadChildren: '../css/css.module#CssModule'
+    }
 ];
 @NgModule({
     imports: [

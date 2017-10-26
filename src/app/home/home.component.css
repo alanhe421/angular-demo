@@ -1,0 +1,16 @@
+h1[class='say hello'] {
+    color: red;
+}
+h1[class='say hello']:hover {
+    color: yellow;
+}
+h1[class='say'] {
+    color: blue;
+}
+h1[class='hello'] {
+    color: green;
+}
+
+.highlight{
+    color: red;
+}

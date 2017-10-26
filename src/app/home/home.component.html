@@ -1,3 +1,20 @@
-<p>
-  home works!
-</p>
+<button class="btn btn-success" (click)="modal.toggle()">启动模态窗</button>
+<app-modal *ngIf="modal.isOn" appCloseOutside (clicking)="modal.toggle()">
+
+</app-modal>
+
+<div>
+    <h1 class="say hello">
+        hello1
+    </h1>
+    <h1 class="say hello">
+        hello2
+    </h1>
+    <h1 class="hello">
+        hello3
+    </h1>
+</div>
+
+<div [innerHtml]="htmlSnippet">
+
+</div>
