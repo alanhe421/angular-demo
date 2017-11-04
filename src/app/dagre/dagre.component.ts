@@ -46,10 +46,14 @@ export class DagreComponent implements OnInit {
         this.g.setNode(0, {label: 'VVV'});
         this.g.setNode(1, {label: "A"});
         this.g.setNode(2, {label: "B"});
-        this.g.setNode(3, {labelType:"html",label: "<i class=\"fa fa-database\"></i>B"});
+        this.g.setNode(3, {labelType:"html",label: "<i class=\"fa fa-database\"></i>C"});
+        this.g.setNode(4, {label:"D"});
+        this.g.setNode(5, {label:"F"});
 
         this.g.setEdge(0, 1);
         this.g.setEdge(0, 2);
+        this.g.setEdge(0, 4);
+        this.g.setEdge(0, 5);
         this.g.setEdge(2, 3);
 
         // Run the renderer. This is what draws the final graph.
