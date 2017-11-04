@@ -2,3 +2,48 @@
 em[class='highlight'] {
     color: red;
 }
+
+g.node {
+    background-color: white;
+    color: black;
+}
+
+g.node > rect {
+    fill: #ccc;
+}
+
+.clusters rect {
+    fill: #00ffd0;
+    stroke: #999;
+    stroke-width: 1.5px;
+}
+
+.node {
+    cursor: move;
+}
+
+text {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.node rect {
+    stroke: #999;
+    fill: #fff;
+    stroke-width: .8px;
+}
+
+.edgePath path {
+    stroke: #333;
+    stroke-width: 1.5px;
+    cursor: pointer;
+}
+
+foreignObject {
+    color: #000;
+}
+
+foreignObject > div > i {
+    color: #289de9;
+    margin-right: 5px;
+}

@@ -19,6 +19,7 @@ import {HomeComponent} from "./home/home.component";
 import {appRoutes} from "./app.routes";
 import {ModalComponent} from "./home/modal/modal.component";
 import {CloseOutsideDirective} from "./home/close-outside.directive";
+import { DagreComponent } from './dagre/dagre.component';
 
 export function createTranslateLoader(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,6 +39,7 @@ export function createTranslateLoader(http: Http) {
         HomeComponent,
         ModalComponent,
         CloseOutsideDirective,
+        DagreComponent,
     ],
     imports: [
         BrowserModule,

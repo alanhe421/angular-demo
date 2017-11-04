@@ -24,6 +24,8 @@
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "0.0.3",
     "core-js": "^2.4.1",
+    "dagre-d3": "^0.4.17",
+    "graphlib-dot": "^0.6.2",
     "ngx-bootstrap": "^1.6.6",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"

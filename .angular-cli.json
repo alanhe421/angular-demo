@@ -57,7 +57,7 @@
     "styleExt": "css",
     "component": {},
     "serve": {
-      "port": 3008
+      "port": 3001
     }
   }
 }

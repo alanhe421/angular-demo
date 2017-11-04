@@ -1,6 +1,7 @@
 import {Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {DocsComponent} from "./docs/docs.component";
+import {DagreComponent} from "./dagre/dagre.component";
 /**
  * Created by He on 24/08/2017.
  */
@@ -39,7 +40,9 @@ export const appRoutes: Routes = [
 
         {
             path: 'docs', component: DocsComponent
+        },
+        {
+            path: 'dagre', component: DagreComponent
         }
-        ,
     ]
 ;
