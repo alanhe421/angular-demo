@@ -1,7 +1,10 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 import * as d3 from "d3";
 import * as dagreD3 from "dagre-d3";
+
+
 declare let $: any;
+
 @Component({
     selector: 'app-dagre',
     templateUrl: './dagre.component.html',
@@ -13,6 +16,8 @@ export class DagreComponent implements OnInit {
     g: dagreD3.graphlib.Graph;
     render = new dagreD3.render();
 
+    graphStr = 'hello';
+
     constructor() {
     }
 
@@ -21,8 +26,8 @@ export class DagreComponent implements OnInit {
     }
 
     createDAG() {
-        let svg = d3.select("svg"),
-            inner = svg.select("g");
+        let svg = d3.select('svg'),
+            inner = svg.select('g');
 
         // Create the input graph
         this.g = new dagreD3.graphlib.Graph({});
@@ -37,18 +42,18 @@ export class DagreComponent implements OnInit {
         };
 
         // Set up zoom support
-        var zoom = d3.behavior.zoom().on("zoom", function () {
-            inner.attr("transform", "translate(" + d3.event.translate + ")" +
-                "scale(" + d3.event.scale + ")");
+        var zoom = d3.behavior.zoom().on('zoom', function () {
+            inner.attr('transform', 'translate(' + d3.event.translate + ')' +
+                'scale(' + d3.event.scale + ')');
         });
         svg.call(zoom);
 
         this.g.setNode(0, {label: 'VVV'});
-        this.g.setNode(1, {label: "A"});
-        this.g.setNode(2, {label: "B"});
-        this.g.setNode(3, {labelType:"html",label: "<i class=\"fa fa-database\"></i>C"});
-        this.g.setNode(4, {label:"D"});
-        this.g.setNode(5, {label:"F"});
+        this.g.setNode(1, {label: 'A'});
+        this.g.setNode(2, {label: 'B'});
+        this.g.setNode(3, {labelType: 'html', label: '<i class="fa fa-database"></i>C'});
+        this.g.setNode(4, {label: 'D'});
+        this.g.setNode(5, {label: 'F'});
 
         this.g.setEdge(0, 1);
         this.g.setEdge(0, 2);
@@ -66,27 +71,27 @@ export class DagreComponent implements OnInit {
         });
 
         //give IDs to each of the nodes so that they can be accessed
-        svg.selectAll("g.node rect")
-            .attr("id", function (d) {
-                return "node" + d;
+        svg.selectAll('g.node rect')
+            .attr('id', function (d) {
+                return 'node' + d;
             });
-        svg.selectAll("g.edgePath path")
-            .attr("id", function (e) {
-                return e.v + "-" + e.w;
+        svg.selectAll('g.edgePath path')
+            .attr('id', function (e) {
+                return e.v + '-' + e.w;
             });
-        svg.selectAll("g.edgeLabel g")
-            .attr("id", function (e) {
-                return 'label_' + e.v + "-" + e.w;
+        svg.selectAll('g.edgeLabel g')
+            .attr('id', function (e) {
+                return 'label_' + e.v + '-' + e.w;
             });
 
 
         this.g.nodes().forEach((v) => {
             var node = this.g.node(v);
-            node.customId = "node" + v;
+            node.customId = 'node' + v;
         });
         this.g.edges().forEach((e) => {
             var edge = this.g.edge(e.v, e.w);
-            edge.customId = e.v + "-" + e.w
+            edge.customId = e.v + '-' + e.w
         });
 
         // code for drag
@@ -103,29 +108,29 @@ export class DagreComponent implements OnInit {
         }
 
         let nodeDrag = d3.behavior.drag()
-            .on("dragstart", dragstart)
-            .on("drag", dragmove);
+            .on('dragstart', dragstart)
+            .on('drag', dragmove);
 
         let edgeDrag = d3.behavior.drag()
-            .on("dragstart", dragstart)
+            .on('dragstart', dragstart)
             .on('drag', (d) => {
                 this.translateEdge(this.g.edge(d.v, d.w), d3.event.dx, d3.event.dy);
                 $('#' + this.g.edge(d.v, d.w).customId).attr('d', this.calcPoints(d));
             });
 
-        nodeDrag.call(svg.selectAll("g.node"));
-        edgeDrag.call(svg.selectAll("g.edgePath"));
+        nodeDrag.call(svg.selectAll('g.node'));
+        edgeDrag.call(svg.selectAll('g.edgePath'));
     }
 
     /**
      * 添加节点
      */
     addNode() {
-        d3.select("svg > g").remove();
-        d3.select("svg").append("g");
-        this.g.setNode(3, {label: "C"});
+        d3.select('svg > g').remove();
+        d3.select('svg').append('g');
+        this.g.setNode(3, {label: 'C'});
         this.render(d3.select(
-            "svg").select("g"), this.g);
+            'svg').select('g'), this.g);
     }
 
     /**
@@ -165,8 +170,8 @@ export class DagreComponent implements OnInit {
         var y = node.y;
         var dx = point.x - x;
         var dy = point.y - y;
-        var w = $("#" + node.customId).attr('width') / 2;
-        var h = $("#" + node.customId).attr('height') / 2;
+        var w = $('#' + node.customId).attr('width') / 2;
+        var h = $('#' + node.customId).attr('height') / 2;
         var sx = 0,
             sy = 0;
         if (Math.abs(dy) * w > Math.abs(dx) * h) {
@@ -206,7 +211,7 @@ export class DagreComponent implements OnInit {
             .y(function (d) {
                 return d.y;
             })
-            .interpolate("basis")
+            .interpolate('basis')
             (points);
     }
 
