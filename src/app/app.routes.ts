@@ -2,6 +2,7 @@ import {Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {DocsComponent} from "./docs/docs.component";
 import {DagreComponent} from "./dagre/dagre.component";
+import {DynamicComponent} from './dynamic/dynamic.component';
 /**
  * Created by He on 24/08/2017.
  */
@@ -43,6 +44,9 @@ export const appRoutes: Routes = [
         },
         {
             path: 'dagre', component: DagreComponent
+        },
+        {
+            path: 'dynamic', component: DynamicComponent
         }
     ]
 ;

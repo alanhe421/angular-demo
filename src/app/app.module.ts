@@ -17,6 +17,8 @@ import {appRoutes} from "./app.routes";
 import {ModalComponent} from "./home/modal/modal.component";
 import {CloseOutsideDirective} from "./home/close-outside.directive";
 import {DagreComponent} from "./dagre/dagre.component";
+import { DynamicComponent } from './dynamic/dynamic.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +35,8 @@ import {DagreComponent} from "./dagre/dagre.component";
         ModalComponent,
         CloseOutsideDirective,
         DagreComponent,
+        DynamicComponent,
+        ListComponent,
     ],
     imports: [
         BrowserModule,

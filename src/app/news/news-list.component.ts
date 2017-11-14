@@ -1,30 +1,17 @@
 import {Component, OnInit} from "@angular/core";
+import {ListComponent} from '../list/list.component';
 
 @Component({
     selector: 'app-news-list',
     templateUrl: './news-list.component.html',
     styleUrls: ['./news-list.component.css']
 })
-export class NewsListComponent implements OnInit {
+export class NewsListComponent extends ListComponent {
 
-    items = [{
-        id: 1,
-        title: "早安地球1",
-    },
-        {
-            id: 2,
-            title: "早安地球2",
-        },
-        {
-            id: 3,
-            title: "早安地球3",
-        },
-        {
-            id: 4,
-            title: "早安地球4",
-        }];
+
 
     constructor() {
+        super();
     }
 
     ngOnInit() {
