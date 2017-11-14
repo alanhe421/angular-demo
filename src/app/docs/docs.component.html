@@ -17,6 +17,21 @@
     </app-card>
 </div>
 
-<select (change)="changeSelector($event)">
-    <option *ngFor="let page of pageSizes" [value]="page" [attr.selected]="page==pageSize?true:null">{{page}}</option>
+<select [(ngModel)]="pageSize" (change)="changeSelector($event)">
+    <option *ngFor="let page of pageSizes" [value]="page">{{page}}</option>
 </select>
+<label>
+    <input name="cck" type="checkbox" [value]="10" [attr.checked]="pageSize==10?true:null">10
+</label>
+<label>
+    <input name="cck" type="checkbox" [value]="20" [attr.checked]="pageSize==20?true:null">20
+</label>
+<label>
+    <input name="cck" type="checkbox" [value]="30" [attr.checked]="pageSize==30?true:null">30
+</label>
+<label>
+    <input name="cck" type="checkbox" [value]="40" [attr.checked]="pageSize==40?true:null">40
+</label>
+<label>
+    <input name="cck" type="checkbox" [value]="50" [attr.checked]="pageSize==50?true:null">50
+</label>

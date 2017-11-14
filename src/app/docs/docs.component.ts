@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class DocsComponent implements OnInit {
 
     pageSizes = [10, 20, 30, 40, 50];
-    pageSize = 30;
+    pageSize = 40;
 
     constructor() {
     }
