@@ -17,3 +17,6 @@
     </app-card>
 </div>
 
+<select>
+    <option *ngFor="let page of pageSizes" [value]="page" [attr.selected]="page==pageSize?true:null">{{page}}</option>
+</select>

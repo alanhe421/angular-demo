@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-docs',
@@ -6,6 +6,9 @@ import {Component, OnInit} from "@angular/core";
     styleUrls: ['./docs.component.css']
 })
 export class DocsComponent implements OnInit {
+
+    pageSizes = [10, 20, 30, 40, 50];
+    pageSize = 30;
 
     constructor() {
     }
