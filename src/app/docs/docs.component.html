@@ -17,6 +17,6 @@
     </app-card>
 </div>
 
-<select>
+<select (change)="changeSelector($event)">
     <option *ngFor="let page of pageSizes" [value]="page" [attr.selected]="page==pageSize?true:null">{{page}}</option>
 </select>

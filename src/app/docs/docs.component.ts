@@ -16,4 +16,7 @@ export class DocsComponent implements OnInit {
     ngOnInit() {
     }
 
+    changeSelector(event) {
+        alert(event.target.value);
+    }
 }
