@@ -9,7 +9,6 @@ import {ListComponent} from '../list/list.component';
 export class NewsListComponent extends ListComponent {
 
 
-
     constructor() {
         super();
     }
