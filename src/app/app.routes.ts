@@ -1,8 +1,10 @@
-import {Routes} from "@angular/router";
-import {HomeComponent} from "./home/home.component";
-import {DocsComponent} from "./docs/docs.component";
-import {DagreComponent} from "./dagre/dagre.component";
+import {Routes} from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {DocsComponent} from './docs/docs.component';
+import {DagreComponent} from './dagre/dagre.component';
 import {DynamicComponent} from './dynamic/dynamic.component';
+import {LoginComponent} from './login/login.component';
+
 /**
  * Created by He on 24/08/2017.
  */
@@ -47,6 +49,9 @@ export const appRoutes: Routes = [
         },
         {
             path: 'dynamic', component: DynamicComponent
+        },
+        {
+            path: 'login', component: LoginComponent
         }
     ]
 ;
