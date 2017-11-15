@@ -1,0 +1,23 @@
+<h3>login-form</h3>
+<div>
+    <form (submit)="doSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="password">
+        </div>
+        <div class="form-group">
+            <label for="password">Captcha</label>
+            <input type="text" class="form-control" id="captcha" placeholder="captcha">
+        </div>
+        <div *ngIf="myForm.get('captcha').errors" class="alert-danger">
+            验证码错误
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!myForm.valid">Submit</button>
+        <button type="reset" class="btn btn-info" (click)="myForm.reset()">Reset
+        </button>
+    </form>
+</div>
