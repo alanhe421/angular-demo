@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {CssComponent} from './css.component';
 import {RouterModule, Routes} from '@angular/router';
 import {CssChildComponent} from './css-child/css-child.component';
+import {SharedModule} from '../shared/shared.module';
 
 const pRoutes: Routes = [
     {
@@ -23,6 +24,7 @@ const pRoutes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(pRoutes),
+        SharedModule
     ],
     declarations: [CssComponent, CssChildComponent]
 })

@@ -17,7 +17,8 @@ export const userRoutes: Routes = [
             },
             {
                 path: 'password',
-                component: UserPasswordComponent
+                component: UserPasswordComponent,
+                outlet: 'password'
             }
         ],
         component: UserComponent

@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-css',
-  templateUrl: './css.component.html',
-  styleUrls: ['./css.component.css']
+    selector: 'app-css',
+    templateUrl: './css.component.html',
+    styleUrls: ['./css.component.css'],
+    // encapsulation: ViewEncapsulation.None
 })
-export class CssComponent implements OnInit {
+export class CssComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+    htmlCode = `<button class="txt-highlight">hello</button>`;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
 
+    ngOnInit() {
+
+    }
+
+    ngAfterViewInit() {
+        const testTarget = document.getElementsByClassName('txt-highlight');
+        testTarget[0].classList.add('txt-selected');
+    }
 }
