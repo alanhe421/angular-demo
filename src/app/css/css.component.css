@@ -2,10 +2,10 @@ button {
     background: red;
 }
 
-::ng-deep .txt-highlight {
+.txt-highlight {
     background: yellowgreen;
 }
 
-::ng-deep .txt-selected {
+.txt-selected {
     width: 200px;
 }

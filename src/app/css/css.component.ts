@@ -4,7 +4,7 @@ import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core
     selector: 'app-css',
     templateUrl: './css.component.html',
     styleUrls: ['./css.component.css'],
-    // encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None
 })
 export class CssComponent implements OnInit, AfterViewInit {
 
