@@ -21,6 +21,7 @@ import {ListComponent} from './list/list.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {HttpClientModule} from '@angular/common/http';
+import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import {HttpClientModule} from '@angular/common/http';
         DynamicComponent,
         ListComponent,
         LoginComponent,
+        TreeComponent,
     ],
     imports: [
         BrowserModule,
