@@ -1,5 +1,6 @@
-import {Component, OnInit} from "@angular/core";
-import {Modal} from "./modal/modal";
+import {Component, OnInit} from '@angular/core';
+import {Modal} from './modal/modal';
+
 declare let $: any;
 
 @Component({
@@ -13,6 +14,8 @@ export class HomeComponent implements OnInit {
 
     htmlSnippet = `<em class="highlight">hhwhqhwq</em>`;
 
+    isList = false;
+
     constructor() {
     }
 
@@ -21,28 +24,28 @@ export class HomeComponent implements OnInit {
             $.contextMenu({
                 selector: '.context-menu-one',
                 callback: function (itemKey, opt, rootMenu, originalEvent) {
-                    var m = "global: " + itemKey;
+                    var m = 'global: ' + itemKey;
                     console.log('originalEvent');
                     console.log(originalEvent);
                     window.console && console.log(m) || alert(m);
                 },
                 items: {
-                    "edit": {
-                        name: "Edit",
-                        icon: "edit",
+                    'edit': {
+                        name: 'Edit',
+                        icon: 'edit',
                         // superseeds "global" callback
                         callback: function (itemKey, opt, rootMenu, originalEvent) {
-                            var m = "edit was clicked";
+                            var m = 'edit was clicked';
                             window.console && console.log(m) || alert(m);
                         }
                     },
-                    "cut": {name: "Cut", icon: "cut"},
-                    "copy": {name: "Copy", icon: "copy"},
-                    "paste": {name: "Paste", icon: "paste"},
-                    "delete": {name: "Delete", icon: "delete"},
-                    "sep1": "---------",
-                    "quit": {
-                        name: "Quit", icon: function ($element, key, item) {
+                    'cut': {name: 'Cut', icon: 'cut'},
+                    'copy': {name: 'Copy', icon: 'copy'},
+                    'paste': {name: 'Paste', icon: 'paste'},
+                    'delete': {name: 'Delete', icon: 'delete'},
+                    'sep1': '---------',
+                    'quit': {
+                        name: 'Quit', icon: function ($element, key, item) {
                             return 'context-menu-icon context-menu-icon-quit';
                         }
                     }
@@ -52,4 +55,7 @@ export class HomeComponent implements OnInit {
 
     }
 
+    viewTypeChanged() {
+        console.log(typeof this.isList);
+    }
 }

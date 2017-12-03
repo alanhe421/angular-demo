@@ -18,3 +18,9 @@
 <div [innerHtml]="htmlSnippet">
 
 </div>
+
+
+<select [(ngModel)]="isList" (ngModelChange)="viewTypeChanged()">
+    <option [ngValue]="true">列表浏览</option>
+    <option [ngValue]="false">分组浏览</option>
+</select>
