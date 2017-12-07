@@ -1,10 +1,23 @@
 <p>
     news-list works!
 </p>
-<ul>
-    <li *ngFor="let item of items">
-        <a routerLink='../detail/{{item.id}}' [queryParams]="{title:item.title}">
-            {{item.title}}
-        </a>
-    </li>
-</ul>
+<select [(ngModel)]="isList" (ngModelChange)="viewTypeChanged()">
+    <option [ngValue]="true">列表浏览</option>
+    <option [ngValue]="false">分组浏览</option>
+</select>
+<ng-template *ngIf="isList;else elseBlock">
+    <div>
+        列表浏览
+    </div>
+    <div *ngFor="let i of [4,5,6]">
+        <h3> {{i}}</h3>
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    <div>
+        分组浏览
+    </div>
+    <div *ngFor="let i of [1,2,3]">
+        <h3> {{i}}</h3>
+    </div>
+</ng-template>

@@ -8,6 +8,7 @@ import {ListComponent} from '../list/list.component';
 })
 export class NewsListComponent extends ListComponent {
 
+    isList = true;
 
     constructor() {
         super();
@@ -16,4 +17,7 @@ export class NewsListComponent extends ListComponent {
     ngOnInit() {
     }
 
+    viewTypeChanged() {
+        console.log(typeof this.isList);
+    }
 }

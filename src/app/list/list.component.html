@@ -1,10 +1,19 @@
 <p class="txt-highlight">
-  list works!
+    list works!
+
+
 </p>
-<ul>
-  <li *ngFor="let item of items">
-    <a routerLink='../detail/{{item.id}}' [queryParams]="{title:item.title}">
-      {{item.title}}
-    </a>
-  </li>
-</ul>
+
+
+<ng-container *ngIf="isList;else elseBlock">
+    <ul>
+        <li *ngFor="let item of items">
+            <a routerLink='../detail/{{item.id}}' [queryParams]="{title:item.title}">
+                {{item.title}}
+            </a>
+        </li>
+    </ul>
+</ng-container>
+<ng-template #elseBlock>
+    分组浏览
+</ng-template>/

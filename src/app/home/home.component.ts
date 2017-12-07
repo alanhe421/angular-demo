@@ -55,7 +55,4 @@ export class HomeComponent implements OnInit {
 
     }
 
-    viewTypeChanged() {
-        console.log(typeof this.isList);
-    }
 }
