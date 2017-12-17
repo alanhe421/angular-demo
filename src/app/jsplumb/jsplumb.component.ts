@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 
 declare let jsPlumb: any;
 declare let $: any;
@@ -12,9 +12,10 @@ export class JsplumbComponent implements OnInit {
 
 
     jsPlumbInstance: any;
+    @ViewChild('canvas') public panel: ElementRef; // 画板
 
 
-    constructor() {
+    constructor(private renderer: Renderer2) {
     }
 
     ngOnInit() {
@@ -108,8 +109,36 @@ export class JsplumbComponent implements OnInit {
             console.log('connection ' + params.connection.id + ' was moved');
         });
 
+        this.addMenu4Node('flowchartWindow1');
     }
 
+
+    /**
+     * node添加右键菜单
+     * id=nodeProgram-5
+     */
+    addMenu4Node(nodeId: string) {
+        let removeNode = (v) => {
+            this.jsPlumbInstance.remove(nodeId);
+        };
+
+        $.contextMenu({
+            selector: '#' + nodeId,
+            callback: function (key, opt, event) {
+                console.log(`event`);
+                console.log(event);
+            },
+            items: {
+                'cut': {
+                    name: '删除',
+                    icon: 'cut',
+                    callback: function (key, opt) {
+                        removeNode(key);
+                    }
+                }
+            }
+        });
+    }
 
 }
 
