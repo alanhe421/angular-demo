@@ -5,6 +5,7 @@ import {DagreComponent} from './dagre/dagre.component';
 import {DynamicComponent} from './dynamic/dynamic.component';
 import {LoginComponent} from './login/login.component';
 import {TreeComponent} from './tree/tree.component';
+import {JsplumbComponent} from './jsplumb/jsplumb.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -47,6 +48,9 @@ export const appRoutes: Routes = [
         },
         {
             path: 'dagre', component: DagreComponent
+        },
+        {
+            path: 'jsplumb', component: JsplumbComponent
         },
         {
             path: 'tree', component: TreeComponent

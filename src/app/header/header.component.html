@@ -15,32 +15,43 @@
                 <li>
                     <a routerLink="docs">Docs</a>
                 </li>
-                <li>
-                    <a routerLink="css">CSS</a>
+                <li class="dropdown">
+                    <a routerLink="m/security2">NG语法
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a routerLink="css">CSS</a>
+                        </li>
+                        <li>
+                            <a routerLink="parent">嵌套懒加载</a>
+                        </li>
+                        <li>
+                            <a routerLink="security">安全性测试</a>
+                        </li>
+                        <li>
+                            <a routerLink="m/security1">安全性测试1</a>
+                        </li>
+                        <li>
+                            <a routerLink="dynamic">动态组件</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a routerLink="parent">嵌套懒加载</a>
-                </li>
-                <li>
-                    <a routerLink="security">安全性测试</a>
-                </li>
-                <li>
-                    <a routerLink="m/security1">安全性测试1</a>
-                </li>
-                <li>
-                    <a routerLink="m/security2">安全性测试2</a>
-                </li>
-                <li>
-                    <a routerLink="news">新闻列表页</a>
-                </li>
-                <li>
-                    <a routerLink="dagre">流程图</a>
-                </li>
-                <li>
-                    <a routerLink="dynamic">动态组件</a>
-                </li>
-                <li>
-                    <a routerLink="tree">树组件</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" routerLink="jsplumb">
+                        第三方组件<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a routerLink="dagre">d3-dagre</a>
+                        </li>
+                        <li>
+                            <a routerLink="jsplumb">jsplumb</a>
+                        </li>
+                        <li>
+                            <a routerLink="tree">树组件</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a routerLink="login">登录</a>

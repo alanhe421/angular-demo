@@ -22,6 +22,7 @@ import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {HttpClientModule} from '@angular/common/http';
 import { TreeComponent } from './tree/tree.component';
+import { JsplumbComponent } from './jsplumb/jsplumb.component';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { TreeComponent } from './tree/tree.component';
         ListComponent,
         LoginComponent,
         TreeComponent,
+        JsplumbComponent,
     ],
     imports: [
         BrowserModule,
