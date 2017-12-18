@@ -57,7 +57,7 @@ export class JsplumbComponent implements OnInit {
             Container: 'canvas'
         });
         const basicType = {
-            connector: 'StateMachine',
+            connector: ['Bezier', {curviness: 100}],
             paintStyle: {stroke: 'red', strokeWidth: 4},
             hoverPaintStyle: {stroke: 'blue'},
             overlays: [
@@ -84,7 +84,7 @@ export class JsplumbComponent implements OnInit {
         // this.jsPlumbInstance.addEndpoint('flowchartWindow1', targetEndpoint);
 
 
-        this.jsPlumbInstance.addEndpoint('flowchartWindow2', targetEndpoint);
+        // this.jsPlumbInstance.addEndpoint('flowchartWindow2', sourceEndpoint);
         this.jsPlumbInstance.addEndpoint('flowchartWindow2', targetEndpoint);
 
 
@@ -93,9 +93,19 @@ export class JsplumbComponent implements OnInit {
         this.jsPlumbInstance.bind('click', function (conn, originalEvent) {
             // if (confirm("Delete connection from " + conn.sourceId + " to " + conn.targetId + "?"))
             //   instance.detach(conn);
-            conn.toggleType('basic');
+            // conn.toggleType('basic');
             console.log(conn);
             console.log(originalEvent);
+        });
+
+        //
+        this.jsPlumbInstance.bind('connection', (connInfo) => {
+            console.log(connInfo);
+            this.addMenu4Edge(connInfo);
+        });
+
+        this.jsPlumbInstance.bind('connectionDetached', (connInfo) => {
+            console.log(connInfo);
         });
 
         this.jsPlumbInstance.bind('connectionDrag', function (connection) {
@@ -110,11 +120,10 @@ export class JsplumbComponent implements OnInit {
             console.log('connection ' + params.connection.id + ' was moved');
         });
 
-
         this.addMenu4Node('flowchartWindow1');
-        var minScale = 0.4;
-        var maxScale = 2;
-        var incScale = 0.1;
+        // var minScale = 0.4;
+        // var maxScale = 2;
+        // var incScale = 0.1;
         //
         // $('.panzoom').panzoom({
         //     minScale: minScale,
@@ -126,6 +135,31 @@ export class JsplumbComponent implements OnInit {
 
     }
 
+    /**
+     *
+     */
+    addMenu4Edge(connInfo: any) {
+        connInfo.connection.addClass(connInfo.connection.id);
+        const removeEdge = (v) => {
+            this.jsPlumbInstance.detach(connInfo);
+        };
+        $.contextMenu({
+            selector: '.' + connInfo.connection.id,
+            callback: function (key, opt, event) {
+                console.log(`event`);
+                console.log(event);
+            },
+            items: {
+                'cut': {
+                    name: '删除',
+                    icon: 'cut',
+                    callback: function (key, opt) {
+                        removeEdge(key);
+                    }
+                }
+            }
+        });
+    }
 
     /**
      * node添加右键菜单
@@ -157,16 +191,12 @@ export class JsplumbComponent implements OnInit {
     addNode() {
         // 图表添加节点信息
         const div = this.renderer.createElement('div');
-        div.id = 'flowchartWindow4';
-        div.innerHTML = `<strong>结束</strong><br/><br/>`;
+        div.id = 'flowchartWindow5';
+        div.innerHTML = `<strong>结束5</strong><br/><br/>`;
         div.setAttribute('class', 'window jtk-node');
         this.renderer.appendChild(this.panel.nativeElement, div);
 
-        this.jsPlumbInstance.addEndpoint('flowchartWindow4', {
-                anchor: anchors
-            },
-            sourceEndpoint
-        );
+        this.jsPlumbInstance.addEndpoint('flowchartWindow5', sourceEndpoint);
 
         // 支持拖拽
         jsPlumb.draggable($(div));
