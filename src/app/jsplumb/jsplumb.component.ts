@@ -78,11 +78,10 @@ export class JsplumbComponent implements OnInit {
         //     target: 'flowchartWindow2', // 目标端点
         //     editable: true
         // });
-        const anchors = [[1, 0.2, 1, 0], [0.8, 1, 0, 1], [0, 0.8, -1, 0], [0.2, 0, 0, -1]];
 
         // 增加端点
-        this.jsPlumbInstance.addEndpoint('flowchartWindow1', {anchor: anchors}, sourceEndpoint);
-        this.jsPlumbInstance.addEndpoint('flowchartWindow1', targetEndpoint);
+        this.jsPlumbInstance.addEndpoint('flowchartWindow1', sourceEndpoint);
+        // this.jsPlumbInstance.addEndpoint('flowchartWindow1', targetEndpoint);
 
 
         this.jsPlumbInstance.addEndpoint('flowchartWindow2', targetEndpoint);
@@ -95,6 +94,8 @@ export class JsplumbComponent implements OnInit {
             // if (confirm("Delete connection from " + conn.sourceId + " to " + conn.targetId + "?"))
             //   instance.detach(conn);
             conn.toggleType('basic');
+            console.log(conn);
+            console.log(originalEvent);
         });
 
         this.jsPlumbInstance.bind('connectionDrag', function (connection) {
@@ -109,7 +110,20 @@ export class JsplumbComponent implements OnInit {
             console.log('connection ' + params.connection.id + ' was moved');
         });
 
+
         this.addMenu4Node('flowchartWindow1');
+        var minScale = 0.4;
+        var maxScale = 2;
+        var incScale = 0.1;
+        //
+        // $('.panzoom').panzoom({
+        //     minScale: minScale,
+        //     maxScale: maxScale,
+        //     increment: incScale,
+        //     cursor: '',
+        //     ignoreChildrensEvents: true,
+        // });
+
     }
 
 
@@ -140,8 +154,30 @@ export class JsplumbComponent implements OnInit {
         });
     }
 
+    addNode() {
+        // 图表添加节点信息
+        const div = this.renderer.createElement('div');
+        div.id = 'flowchartWindow4';
+        div.innerHTML = `<strong>结束</strong><br/><br/>`;
+        div.setAttribute('class', 'window jtk-node');
+        this.renderer.appendChild(this.panel.nativeElement, div);
+
+        this.jsPlumbInstance.addEndpoint('flowchartWindow4', {
+                anchor: anchors
+            },
+            sourceEndpoint
+        );
+
+        // 支持拖拽
+        jsPlumb.draggable($(div));
+
+        // 右键菜单
+        this.addMenu4Node(div.id);
+    }
+
 }
 
+const anchors = [[1, 0.2, 1, 0], [0.8, 1, 0, 1], [0, 0.8, -1, 0], [0.2, 0, 0, -1]];
 
 const connectorPaintStyle = {
         strokeWidth: 2,

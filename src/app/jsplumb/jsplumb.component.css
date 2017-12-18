@@ -106,3 +106,16 @@ path, .jtk-endpoint {
 .jtk-overlay {
     background-color: transparent;
 }
+
+.panzoom {
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    left: 50px;
+    top: 20px;
+    overflow: visible;
+    background-color: #000;
+    opacity: .1;
+}
+
+
