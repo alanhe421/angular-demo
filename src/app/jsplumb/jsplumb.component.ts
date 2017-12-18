@@ -136,12 +136,13 @@ export class JsplumbComponent implements OnInit {
     }
 
     /**
-     *
+     * 边添加右键菜单
      */
-    addMenu4Edge(connInfo: any) {
+    addMenu4Edge(connInfo) {
         connInfo.connection.addClass(connInfo.connection.id);
         const removeEdge = (v) => {
-            this.jsPlumbInstance.detach(connInfo);
+            console.log(connInfo);
+            this.jsPlumbInstance.deleteConnection(connInfo['sourceId'], connInfo['targetId']);
         };
         $.contextMenu({
             selector: '.' + connInfo.connection.id,
@@ -199,7 +200,14 @@ export class JsplumbComponent implements OnInit {
         this.jsPlumbInstance.addEndpoint('flowchartWindow5', sourceEndpoint);
 
         // 支持拖拽
-        jsPlumb.draggable($(div));
+        jsPlumb.draggable($(div), {
+            drag: function (event) {
+                console.log(event);
+            },
+            start: function (event) {
+                console.log(event);
+            }
+        });
 
         // 右键菜单
         this.addMenu4Node(div.id);
