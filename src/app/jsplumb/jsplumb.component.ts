@@ -54,7 +54,8 @@ export class JsplumbComponent implements OnInit {
                     }
                 }]
             ],
-            Container: 'canvas'
+            Container: 'canvas',
+            ConnectionsDetachable: true
         });
         const basicType = {
             connector: ['Bezier', {curviness: 100}],
@@ -73,11 +74,6 @@ export class JsplumbComponent implements OnInit {
         this.jsPlumbInstance.draggable('flowchartWindow3');
         this.jsPlumbInstance.draggable('flowchartWindow4');
 
-        // this.jsPlumbInstance.connect({
-        //     source: 'flowchartWindow1', // 源端点
-        //     target: 'flowchartWindow2', // 目标端点
-        //     editable: true
-        // });
 
         // 增加端点
         this.jsPlumbInstance.addEndpoint('flowchartWindow1', sourceEndpoint);
@@ -86,7 +82,6 @@ export class JsplumbComponent implements OnInit {
 
         // this.jsPlumbInstance.addEndpoint('flowchartWindow2', sourceEndpoint);
         this.jsPlumbInstance.addEndpoint('flowchartWindow2', targetEndpoint);
-
 
         // listen for clicks on connections, and offer to delete connections on click.
         //
@@ -100,8 +95,8 @@ export class JsplumbComponent implements OnInit {
 
         //
         this.jsPlumbInstance.bind('connection', (connInfo) => {
-            console.log(connInfo);
             this.addMenu4Edge(connInfo);
+            console.log(connInfo);
         });
 
         this.jsPlumbInstance.bind('connectionDetached', (connInfo) => {
@@ -119,19 +114,9 @@ export class JsplumbComponent implements OnInit {
         this.jsPlumbInstance.bind('connectionMoved', function (params) {
             console.log('connection ' + params.connection.id + ' was moved');
         });
-
-        this.addMenu4Node('flowchartWindow1');
-        // var minScale = 0.4;
-        // var maxScale = 2;
-        // var incScale = 0.1;
-        //
-        // $('.panzoom').panzoom({
-        //     minScale: minScale,
-        //     maxScale: maxScale,
-        //     increment: incScale,
-        //     cursor: '',
-        //     ignoreChildrensEvents: true,
-        // });
+        this.jsPlumbInstance.bind('click', (connection, e) => {
+            this.jsPlumbInstance.detach(connection);
+        });
 
     }
 
@@ -142,7 +127,8 @@ export class JsplumbComponent implements OnInit {
         connInfo.connection.addClass(connInfo.connection.id);
         const removeEdge = (v) => {
             console.log(connInfo);
-            this.jsPlumbInstance.deleteConnection(connInfo['sourceId'], connInfo['targetId']);
+            let cons = this.jsPlumbInstance.getConnections('*', {source: connInfo['sourceId'], target: connInfo['targetId']});
+            this.jsPlumbInstance.deleteConnection(cons[0]);
         };
         $.contextMenu({
             selector: '.' + connInfo.connection.id,
@@ -211,6 +197,14 @@ export class JsplumbComponent implements OnInit {
 
         // 右键菜单
         this.addMenu4Node(div.id);
+    }
+
+    /**
+     * 删除边
+     */
+    removeEdge() {
+        let cons = this.jsPlumbInstance.getConnections('*', {source: 'flowchartWindow1', target: 'flowchartWindow2'});
+        this.jsPlumbInstance.deleteConnection(cons);
     }
 
 }
