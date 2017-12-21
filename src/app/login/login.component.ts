@@ -10,6 +10,7 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 export class LoginComponent implements OnInit {
 
     myForm: FormGroup;
+    errorMsg: string;
 
     constructor(private loginService: LoginService, private fb: FormBuilder) {
     }
@@ -20,8 +21,7 @@ export class LoginComponent implements OnInit {
             password: [
                 '',
                 [Validators.required]
-            ],
-            captcha: ['', [this.checkCaptcha.bind(this)]]
+            ]
         });
 
     }
@@ -37,6 +37,19 @@ export class LoginComponent implements OnInit {
 
     doSubmit() {
 
+    }
+
+    /**
+     * 输入表单校验
+     */
+    inputBlur(event) {
+        const name = event.target.name;
+        if (name === 'username' && this.myForm.get(name).hasError('required')) {
+            return this.errorMsg = '用户名必填';
+        }
+        if (name === 'password' && this.myForm.get(name).hasError('required')) {
+            return this.errorMsg = '密码必填';
+        }
     }
 
 }
