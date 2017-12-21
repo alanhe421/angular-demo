@@ -43,6 +43,9 @@ export class LoginComponent implements OnInit {
      * 输入表单校验
      */
     inputBlur(event) {
+        if (!this.myForm.invalid) {
+            return;
+        }
         const name = event.target.name;
         if (name === 'username' && this.myForm.get(name).hasError('required')) {
             return this.errorMsg = '用户名必填';
