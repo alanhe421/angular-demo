@@ -1,4 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import 'rxjs/add/operator/pairwise';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 
 declare let $: any;
@@ -10,13 +11,12 @@ declare let $: any;
 })
 export class AppComponent implements OnInit {
     title = 'app works!';
-    private static previousRoutesUrl = new Array<string>();
+
     public scrollPos: any = {};
     public interval: any;
     public lastRoute: string;
 
     constructor(private router: Router) {
-
     }
 
     ngOnInit() {
@@ -26,6 +26,8 @@ export class AppComponent implements OnInit {
                 this.lastRoute = this.routeName(this.router.url);
             }
         }, error => console.error(error));
+
+
         this.router.events.subscribe((event: NavigationEnd) => {
             if (event instanceof NavigationEnd) {
                 if (this.routeName(this.router.url) != this.lastRoute) {
@@ -34,17 +36,6 @@ export class AppComponent implements OnInit {
                 }
             }
         }, error => console.error(error));
-    }
-
-    loadMore(): void {
-        // alert('加载更多');
-    }
-
-    /**
-     * 搜索
-     */
-    search() {
-        alert('searching!');
     }
 
     public resolveScroll() {
@@ -88,11 +79,14 @@ export class AppComponent implements OnInit {
         return url;
     }
 
+
     @HostListener('window:popstate', ['$event'])
     public onPopState(event) {
+
         console.log(`setInverval waiting...`);
         this.interval = setInterval(() => this.resolveScroll(), 400);
         //console.log(`interval (${this.interval}) created`);
+
     }
 
     saveScroll() {
@@ -106,6 +100,7 @@ export class AppComponent implements OnInit {
 
     @HostListener('window:scroll', ['$event'])
     public logScrollPosition(event) {
+
         let url = this.routeName(this.router.url);
         let position = Math.floor(window.scrollY);
         console.log(`log (not saving) (${position}) - ${url}`);
