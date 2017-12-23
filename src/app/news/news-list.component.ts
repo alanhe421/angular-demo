@@ -1,5 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from '@angular/core';
 import {ListComponent} from '../list/list.component';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-news-list',
@@ -9,12 +10,10 @@ import {ListComponent} from '../list/list.component';
 export class NewsListComponent extends ListComponent {
 
     isList = true;
+    searchId = '21212121212';
 
-    constructor() {
-        super();
-    }
-
-    ngOnInit() {
+    constructor(http: HttpClient) {
+        super(http);
     }
 
     viewTypeChanged() {

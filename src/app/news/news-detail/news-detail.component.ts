@@ -1,5 +1,5 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-news-detail',
@@ -8,27 +8,21 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class NewsDetailComponent implements OnInit {
 
+    docId: string;
+    searchId: string;
+
     constructor(private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        // this.route.queryParams.subscribe(qparams => {
-        //     alert(qparams['title']);
-        //     this.route.params.subscribe(params => {
-        //         alert(params['id']);
-        //     });
-        // })
+        this.route.paramMap.subscribe(paramMap => {
+            this.docId = paramMap.get('id');
+            this.searchId = this.route.snapshot.queryParamMap.get('searchId');
+        });
 
-        // let obsCombined = Observable.combineLatest(this.route.params, this.route.queryParams, (params, qparams) => ({
-        //     params,
-        //     qparams
-        // }));
+        // let obsCombined = Observable.combineLatest(this.route.queryParams, this.route.params);
         // obsCombined.subscribe(ap => {
-        //     console.log(ap);
-        //     let params = ap['params'];
-        //     let qparams = ap['qparams'];
-        //     alert(qparams['title']);
-        //     alert(params['id']);
+        //     alert('我变了');
         // });
     }
 }

@@ -21,3 +21,8 @@
         <h3> {{i}}</h3>
     </div>
 </ng-template>
+<ul>
+    <li *ngFor="let item of items; let i = index">
+        <a routerLink="../detail/{{i}}" [queryParams]="{searchId:searchId}">{{i}} ---{{item['title']}}</a>
+    </li>
+</ul>
