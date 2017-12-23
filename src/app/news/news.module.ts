@@ -4,6 +4,7 @@ import {NewsDetailComponent} from './news-detail/news-detail.component';
 import {NewsListComponent} from './news-list.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
 
 export const routes: Routes = [
     {
@@ -19,7 +20,8 @@ export const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        SharedModule
     ],
     declarations: [NewsDetailComponent, NewsListComponent]
 })

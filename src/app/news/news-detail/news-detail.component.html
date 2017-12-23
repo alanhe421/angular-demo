@@ -1,6 +1,15 @@
 <p>
     news-detail works!
 </p>
+
+<h3>
+    锚点链接:</h3>
+<ul>
+    <li><a href="{{currentURL}}#t1">t1</a></li>
+    <li><a href="{{currentURL}}#t2">t2</a></li>
+</ul>
+
+
 <dl class="dl-horizontal">
     <dt>
         docId
@@ -19,3 +28,15 @@
     下一篇
 </h3>
 <a routerLink="../34" [queryParams]="{searchId:'666666'}">下一篇</a>
+
+
+<h3>
+    正文
+</h3>
+<div class="row">
+    <div class="col-sm-12">
+        <div id="content-detail" [innerHtml]="htmlBlock|safe:'html'">
+
+        </div>
+    </div>
+</div>
