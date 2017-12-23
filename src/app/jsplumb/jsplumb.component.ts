@@ -77,10 +77,6 @@ export class JsplumbComponent implements OnInit {
 
         // 增加端点
         this.jsPlumbInstance.addEndpoint('flowchartWindow1', sourceEndpoint);
-        // this.jsPlumbInstance.addEndpoint('flowchartWindow1', targetEndpoint);
-
-
-        // this.jsPlumbInstance.addEndpoint('flowchartWindow2', sourceEndpoint);
         this.jsPlumbInstance.addEndpoint('flowchartWindow2', targetEndpoint);
 
         // listen for clicks on connections, and offer to delete connections on click.
@@ -185,8 +181,8 @@ export class JsplumbComponent implements OnInit {
 
         this.jsPlumbInstance.addEndpoint('flowchartWindow5', sourceEndpoint);
 
-        // 支持拖拽
-        jsPlumb.draggable($(div), {
+        // 支持拖拽且拖拽事件监听
+        this.jsPlumbInstance.draggable($(div), {
             drag: function (event) {
                 console.log(event);
             },
