@@ -38,5 +38,13 @@ export class NewsDetailComponent implements OnInit {
         //     alert('我变了');
         // });
     }
+
+    contentChanged(event) {
+        alert('你好');
+        event.preventDefault();
+        console.log('contentChanged');
+    }
+
+
 }
 

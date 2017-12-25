@@ -35,8 +35,7 @@
 </h3>
 <div class="row">
     <div class="col-sm-12">
-        <div id="content-detail" [innerHtml]="htmlBlock|safe:'html'">
-
-        </div>
-    </div>
+        <div id="content-detail" [innerHtml]="htmlBlock|safe:'html'"
+             (click)="contentChanged($event)"></div>
+</div>
 </div>
