@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 
+declare let $: any;
+
 @Component({
     selector: 'app-news-detail',
     templateUrl: './news-detail.component.html',
@@ -22,11 +24,6 @@ export class NewsDetailComponent implements OnInit {
             console.log(res);
             this.htmlBlock = res['data']['content'];
             console.log(this.route.snapshot.fragment);
-            if (this.route.snapshot.fragment) {
-                window.setTimeout(() => {
-                    location.hash = this.route.snapshot.fragment;
-                }, 500);
-            }
         });
         this.route.paramMap.subscribe(paramMap => {
             this.docId = paramMap.get('id');
@@ -39,12 +36,9 @@ export class NewsDetailComponent implements OnInit {
         // });
     }
 
-    contentChanged(event) {
-        alert('你好');
-        event.preventDefault();
-        console.log('contentChanged');
+    positionTOAnchor() {
+        location.hash = this.route.snapshot.fragment;
     }
-
 
 }
 

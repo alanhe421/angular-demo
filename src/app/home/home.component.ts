@@ -52,7 +52,14 @@ export class HomeComponent implements OnInit {
                 }
             });
         });
-
+        this.test();
     }
 
+    test() {
+        let links = document.getElementsByTagName('a');
+        Array.from(links).forEach((item) => {
+            item.protocol = 'https';
+            console.log(item.href);
+        });
+    }
 }

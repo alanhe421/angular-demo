@@ -1,6 +1,7 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/pairwise';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 
 declare let $: any;
 
@@ -10,104 +11,38 @@ declare let $: any;
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    title = 'app works!';
 
-    public scrollPos: any = {};
-    public interval: any;
-    public lastRoute: string;
+    private _routeScrollPositions: { [url: string]: number }[] = [];
+    private _subscriptions: Subscription[] = [];
 
     constructor(private router: Router) {
     }
 
     ngOnInit() {
-        this.router.events.subscribe((event: NavigationStart) => {
-            if (event instanceof NavigationStart) {
-                this.saveScroll();
-                this.lastRoute = this.routeName(this.router.url);
-            }
-        }, error => console.error(error));
-
-
-        this.router.events.subscribe((event: NavigationEnd) => {
-            if (event instanceof NavigationEnd) {
-                if (this.routeName(this.router.url) != this.lastRoute) {
-                    console.log(`current  route ${this.router.url}`);
-                    console.log(`previous route ${this.lastRoute}`);
-                }
-            }
-        }, error => console.error(error));
+        // this._subscriptions.push(
+        //     // save or restore scroll position on route change
+        //     this.router.events.pairwise().subscribe(([prevRouteEvent, currRouteEvent]) => {
+        //         if (prevRouteEvent instanceof NavigationEnd && currRouteEvent instanceof NavigationStart) {
+        //             this._routeScrollPositions[prevRouteEvent.url] = window.pageYOffset;
+        //         }
+        //         if (currRouteEvent instanceof NavigationEnd) {
+        //             window.scrollTo(0, this._routeScrollPositions[currRouteEvent.url] || 0);
+        //         }
+        //     })
+        // );
     }
 
-    public resolveScroll() {
+    // ngOnDestroy() {
+    //     this._subscriptions.forEach(subscription => subscription.unsubscribe());
+    // }
+    //
+    // isAnchorChange(preUrl: string, currUrl: string) {
+    //     const removeHash = (str: string) => {
+    //         return str.indexOf('#') === -1 ? str : str.substring(0, str.indexOf('#'));
+    //     };
+    //     return removeHash(preUrl) == removeHash(currUrl);
+    //
+    // }
 
-        var url = this.routeName(this.router.url);
-        let position = this.scrollPos[url] ? this.scrollPos[url] : 0;
-
-        if (position == 0)
-            this.scrollTo(position);
-        else if ($('html').height() >= position)
-            this.scrollTo(position);
-    }
-
-    public scrollToTop() {
-        console.log(`scrolling to top`);
-        $('body, html').scrollTop(0);
-    }
-
-    public scrollTo(position) {
-        if (!this.interval)
-            return;
-
-        console.log(`after waiting, scroll set to ${position}`);
-        $('body, html').scrollTop(position);
-        this.destroyScrollListener();
-    }
-
-    public destroyScrollListener() {
-        clearInterval(this.interval);
-        this.interval = null;
-    }
-
-    private routeName(url: string) {
-        if (!url) return null;
-
-        var slashIndex = url.indexOf('/');
-        var matrixParamsIndex = url.indexOf(';') != -1 ? url.indexOf(';') : url.length;
-
-        url = url.substring(slashIndex, matrixParamsIndex);
-
-        return url;
-    }
-
-
-    @HostListener('window:popstate', ['$event'])
-    public onPopState(event) {
-
-        console.log(`setInverval waiting...`);
-        this.interval = setInterval(() => this.resolveScroll(), 400);
-        //console.log(`interval (${this.interval}) created`);
-
-    }
-
-    saveScroll() {
-        let url = this.routeName(this.router.url);
-        let position = Math.floor(window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
-
-        console.log(`saving (${position}) - ${url}`);
-
-        this.scrollPos[url] = position;
-    }
-
-    @HostListener('window:scroll', ['$event'])
-    public logScrollPosition(event) {
-
-        let url = this.routeName(this.router.url);
-        let position = Math.floor(window.scrollY);
-        console.log(`log (not saving) (${position}) - ${url}`);
-    }
 }
-
-
-
-
 
