@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 
 @Component({
     selector: 'app-card',
@@ -6,13 +6,21 @@ import {Component, OnInit} from "@angular/core";
     styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-    header: string = "header";
-    footer: string = "footer";
+    header: string = 'header';
+    footer: string = 'footer';
 
-    constructor() {
+    constructor(private render: Renderer2, private el: ElementRef) {
     }
 
     ngOnInit() {
+    }
+
+    addClass() {
+        this.render.addClass(this.el.nativeElement, 'danger');
+    }
+
+    removeClass() {
+        this.render.removeClass(this.el.nativeElement, 'danger');
     }
 
 }
