@@ -21,4 +21,8 @@ export class CssComponent implements OnInit, AfterViewInit {
         const testTarget = document.getElementsByClassName('txt-highlight');
         testTarget[0].classList.add('txt-selected');
     }
+
+    sayHello() {
+        alert('say hello');
+    }
 }

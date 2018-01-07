@@ -43,7 +43,7 @@ import { JsplumbComponent } from './jsplumb/jsplumb.component';
         ListComponent,
         LoginComponent,
         TreeComponent,
-        JsplumbComponent,
+        JsplumbComponent
     ],
     imports: [
         BrowserModule,
