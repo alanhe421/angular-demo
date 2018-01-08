@@ -21,8 +21,9 @@ import {ListComponent} from './list/list.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {HttpClientModule} from '@angular/common/http';
-import { TreeComponent } from './tree/tree.component';
-import { JsplumbComponent } from './jsplumb/jsplumb.component';
+import {TreeComponent} from './tree/tree.component';
+import {JsplumbComponent} from './jsplumb/jsplumb.component';
+import {AlertComponent} from './dynamic/exe-alert.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { JsplumbComponent } from './jsplumb/jsplumb.component';
         ListComponent,
         LoginComponent,
         TreeComponent,
-        JsplumbComponent
+        JsplumbComponent,
+        AlertComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +55,8 @@ import { JsplumbComponent } from './jsplumb/jsplumb.component';
         RouterModule.forRoot(appRoutes),
     ],
     providers: [LoginService],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [AlertComponent],
 })
 export class AppModule {
 }

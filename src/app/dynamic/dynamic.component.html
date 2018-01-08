@@ -1,4 +1,7 @@
 <div class="ad-banner">
-  <h3>Advertisements</h3>
-  <ng-template ad-host></ng-template>
+    <h3>Advertisements</h3>
+    <ng-template ad-host></ng-template>
 </div>
+<ng-template #alertContainer></ng-template>
+<button (click)="createComponent('success')">Create success alert</button>
+<button (click)="createComponent('danger')">Create danger alert</button>
