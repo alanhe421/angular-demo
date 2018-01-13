@@ -26,6 +26,7 @@
     "dagre-d3": "^0.4.17",
     "graphlib-dot": "^0.6.2",
     "moment": "^2.20.1",
+    "ngx-bootstrap": "^2.0.0-rc.0",
     "rxjs": "^5.5.0",
     "typescript": "^2.4.2",
     "zone.js": "^0.8.4"

@@ -1,5 +1,16 @@
+#panel-parent {
+    overflow: hidden;
+    border: #333 1px solid;
+}
+
+#panel-parent #dag-panel {
+    height: 550px;
+    max-height: 700px;
+    position: relative;
+}
+
 .flowchart-demo {
-    min-height: 800px;
+    position: relative;
 }
 
 .flowchart-demo .window {
@@ -116,15 +127,6 @@ path, .jtk-endpoint {
     background-color: transparent;
 }
 
-.panzoom {
-    position: absolute;
-    width: 500px;
-    height: 250px;
-    left: 50px;
-    top: 20px;
-    overflow: visible;
-    background-color: #000;
-    opacity: .1;
-}
+
 
 

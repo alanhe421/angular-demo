@@ -114,6 +114,28 @@ export class JsplumbComponent implements OnInit {
             this.jsPlumbInstance.detach(connection);
         });
 
+        const $panelzoom = $('.panzoom').panzoom({
+            $set: $(this.panel.nativeElement)
+        });
+
+        $panelzoom.parent().on('mousewheel.focal', function (e) {
+            e.preventDefault();
+            const delta = e.delta || e.originalEvent.wheelDelta;
+            const zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
+            $panelzoom.panzoom('zoom', zoomOut, {
+                increment: 0.1,
+                animate: false,
+                focal: e
+            });
+        });
+
+        $('#dag-panel div').on('mouseover', (e) => {
+            $('.panzoom').panzoom('option', 'ignoreChildrensEvents', true);
+        });
+        $('#dag-panel div').on('mouseleave', (e) => {
+            $('.panzoom').panzoom('option', 'ignoreChildrensEvents', false);
+        });
+
     }
 
     /**
