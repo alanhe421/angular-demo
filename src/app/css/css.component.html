@@ -10,8 +10,6 @@
 
 <div [innerHtml]="htmlCode|safe:'html'"></div>
 
-<div appIsLogin>
-    <a (click)="sayHello()" target="_blank">
-        下载
-    </a>
-</div>
+<button type="button" appIsLogin (click)="sayHello()">
+    文档下载
+</button>

@@ -23,6 +23,6 @@ export class CssComponent implements OnInit, AfterViewInit {
     }
 
     sayHello() {
-        alert('say hello');
+        console.log('clicked');
     }
 }

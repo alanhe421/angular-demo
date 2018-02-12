@@ -8,12 +8,19 @@ import {Directive, HostListener} from '@angular/core';
 })
 export class IsLoginDirective {
 
+    isLoginIn = false;
+
     constructor() {
     }
 
-    @HostListener('click', ['$event'])
-    onClick(event: Event): void {
-        alert('appIsLogin');
-        event.preventDefault();
+    @HostListener('mousedown', ['$event'])
+    onClick(event: Event): boolean {
+        if (!this.isLoginIn) {
+            console.log('mousedown');
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }
+        return true;
     }
 }

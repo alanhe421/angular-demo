@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, TemplateRef, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'exe-alert',
@@ -7,6 +7,9 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     `,
 })
 export class AlertComponent {
-    @Input() type: string = 'success';
+    @Input() type = 'success';
     @Output() output = new EventEmitter();
+    ngOnInit() {
+
+    }
 }

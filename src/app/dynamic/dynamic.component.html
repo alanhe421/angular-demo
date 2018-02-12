@@ -5,3 +5,18 @@
 <ng-template #alertContainer></ng-template>
 <button (click)="createComponent('success')">Create success alert</button>
 <button (click)="createComponent('danger')">Create danger alert</button>
+
+<!--<ng-template #buttonIcon>-->
+<!--</ng-template>-->
+<!--<ng-container-->
+<!--*ngTemplateOutlet="buttonIcon">-->
+<!--</ng-container>-->
+<div class="row">
+    <ng-template #popTemplate>Here we go:
+        <div [innerHtml]="html"></div>
+    </ng-template>
+    <a class="btn btn-success" href="www.baidu.com" (onShown)="showPopover($event)"
+       [popover]="popTemplate" popoverTitle="Dynamic html inside">
+        Show me popover with html
+    </a>
+</div>

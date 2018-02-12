@@ -24,6 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {AlertComponent} from './dynamic/exe-alert.component';
+import {SharedModule} from './shared/shared.module';
+import { SocialShareComponent } from './social-share/social-share.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +47,8 @@ import {AlertComponent} from './dynamic/exe-alert.component';
         LoginComponent,
         TreeComponent,
         JsplumbComponent,
-        AlertComponent
+        AlertComponent,
+        SocialShareComponent
     ],
     imports: [
         BrowserModule,
@@ -53,10 +56,11 @@ import {AlertComponent} from './dynamic/exe-alert.component';
         HttpClientModule,
         ReactiveFormsModule,
         RouterModule.forRoot(appRoutes),
+        SharedModule
     ],
     providers: [LoginService],
     bootstrap: [AppComponent],
-    entryComponents: [AlertComponent],
+    entryComponents: [AlertComponent], // 动态组件
 })
 export class AppModule {
 }
