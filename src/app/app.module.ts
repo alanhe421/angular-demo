@@ -25,7 +25,8 @@ import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {AlertComponent} from './dynamic/exe-alert.component';
 import {SharedModule} from './shared/shared.module';
-import { SocialShareComponent } from './social-share/social-share.component';
+import {SocialShareComponent} from './social-share/social-share.component';
+import {RetainScrollPolyfillModule} from './polyfill/retain-scroll-polyfill/retain-scroll-polyfill.module';
 
 @NgModule({
     declarations: [
@@ -52,6 +53,12 @@ import { SocialShareComponent } from './social-share/social-share.component';
     ],
     imports: [
         BrowserModule,
+        RetainScrollPolyfillModule.forRoot({
+            // Tell the polyfill how long to poll the document after a route change in
+            // order to look for elements that need to be restored to a previous offset.
+            pollDuration: 3000,
+            pollCadence: 50
+        }),
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
