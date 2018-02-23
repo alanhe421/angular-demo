@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ListComponent implements OnInit {
     items = [];
+    isList = false;
 
     constructor(protected http: HttpClient) {
     }

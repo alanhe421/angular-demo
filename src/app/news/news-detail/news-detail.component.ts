@@ -36,6 +36,7 @@ export class NewsDetailComponent implements OnInit {
         // });
     }
 
+
     positionTOAnchor() {
         location.hash = this.route.snapshot.fragment;
     }

@@ -14,9 +14,16 @@ export class DocsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.createDomElement();
     }
 
     changeSelector(event) {
         alert(event.target.value);
+    }
+
+    createDomElement() {
+        let domObj = document.createElement('div');
+        domObj.innerHTML = '<div>日本人</div><div id="test">中国人</div>';
+        console.log(domObj.querySelector('#test').innerHTML);
     }
 }
