@@ -7,6 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod && node scripts/after-build.js",
+    "build:gzip": "ng build --prod && node scripts/after-build.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

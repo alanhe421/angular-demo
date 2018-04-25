@@ -25,7 +25,6 @@ import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {AlertComponent} from './dynamic/exe-alert.component';
 import {SharedModule} from './shared/shared.module';
-import {SocialShareComponent} from './social-share/social-share.component';
 import {RetainScrollPolyfillModule} from './polyfill/retain-scroll-polyfill/retain-scroll-polyfill.module';
 
 @NgModule({
@@ -49,7 +48,6 @@ import {RetainScrollPolyfillModule} from './polyfill/retain-scroll-polyfill/reta
         TreeComponent,
         JsplumbComponent,
         AlertComponent,
-        SocialShareComponent
     ],
     imports: [
         BrowserModule,
