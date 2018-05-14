@@ -1,8 +1,10 @@
-import { MotationObserverDirective } from './motation-observer.directive';
+import {MotationObserverDirective} from './motation-observer.directive';
+import {ElementRef} from '@angular/core';
 
 describe('MotationObserverDirective', () => {
-  it('should create an instance', () => {
-    const directive = new MotationObserverDirective();
-    expect(directive).toBeTruthy();
-  });
+    let el: ElementRef;
+    it('should create an instance', () => {
+        const directive = new MotationObserverDirective(el);
+        expect(directive).toBeTruthy();
+    });
 });

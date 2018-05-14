@@ -1,8 +1,10 @@
-import { CloseOutsideDirective } from './close-outside.directive';
+import {CloseOutsideDirective} from './close-outside.directive';
+import {ElementRef} from '@angular/core';
 
 describe('CloseOutsideDirective', () => {
-  it('should create an instance', () => {
-    const directive = new CloseOutsideDirective();
-    expect(directive).toBeTruthy();
-  });
+    let el: ElementRef;
+    it('should create an instance', () => {
+        const directive = new CloseOutsideDirective(el);
+        expect(directive).toBeTruthy();
+    });
 });

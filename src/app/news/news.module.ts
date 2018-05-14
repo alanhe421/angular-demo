@@ -22,10 +22,9 @@ export const routes: Routes = [
         CommonModule,
         FormsModule,
         RouterModule.forChild(routes),
-        SocialShareComponent,
         SharedModule
     ],
-    declarations: [NewsDetailComponent, NewsListComponent]
+    declarations: [NewsDetailComponent, NewsListComponent, SocialShareComponent]
 })
 export class NewsModule {
 }
