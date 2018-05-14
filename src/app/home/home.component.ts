@@ -53,7 +53,18 @@ export class HomeComponent implements OnInit {
             });
         });
         this.test();
+        console.log(this.quickSort([3, 1, 2, 4, 19, 4]));
     }
+
+    /**
+     * 快速排序
+     * @param {Array<number>} a
+     * @returns {Array<number>}
+     */
+    quickSort(a: Array<number>) {
+        return a.length <= 1 ? a : this.quickSort(a.slice(1).filter(item => item <= a[0])).concat(a[0], this.quickSort(a.slice(1).filter(item => item > a[0])));
+    }
+
 
     test() {
         let links = document.getElementsByTagName('a');
