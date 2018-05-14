@@ -6,6 +6,7 @@ import {DynamicComponent} from './dynamic/dynamic.component';
 import {LoginComponent} from './login/login.component';
 import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
+import {SocketIoComponent} from './socket-io/socket-io.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -17,6 +18,8 @@ export const appRoutes: Routes = [
             pathMatch: 'full'
         },
         {path: 'home', component: HomeComponent},
+        {path: 'socket', component: SocketIoComponent},
+
         // {path: 'parent', loadChildren: './parent/parent.module#ParentModule'},
         {path: 'css', loadChildren: './css/css.module#CssModule'},
         {

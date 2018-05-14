@@ -26,6 +26,7 @@ import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {AlertComponent} from './dynamic/exe-alert.component';
 import {SharedModule} from './shared/shared.module';
 import {RetainScrollPolyfillModule} from './polyfill/retain-scroll-polyfill/retain-scroll-polyfill.module';
+import { SocketIoComponent } from './socket-io/socket-io.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +49,7 @@ import {RetainScrollPolyfillModule} from './polyfill/retain-scroll-polyfill/reta
         TreeComponent,
         JsplumbComponent,
         AlertComponent,
+        SocketIoComponent,
     ],
     imports: [
         BrowserModule,
