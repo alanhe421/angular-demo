@@ -23,8 +23,7 @@
         "styles.css"
       ],
       "scripts": [
-
-
+        "../node_modules/socket.io-client/dist/socket.io.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

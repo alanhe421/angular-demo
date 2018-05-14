@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
+declare const io: any;
+
 @Component({
     selector: 'app-socket-io',
     templateUrl: './socket-io.component.html',
