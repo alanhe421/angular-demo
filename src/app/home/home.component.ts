@@ -62,4 +62,8 @@ export class HomeComponent implements OnInit {
             console.log(item.href);
         });
     }
+
+    testDataSet(event) {
+        console.debug(event.target.dataset);
+    }
 }
