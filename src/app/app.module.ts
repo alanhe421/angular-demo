@@ -25,8 +25,9 @@ import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {AlertComponent} from './dynamic/exe-alert.component';
 import {SharedModule} from './shared/shared.module';
-import {RetainScrollPolyfillModule} from './polyfill/retain-scroll-polyfill/retain-scroll-polyfill.module';
-import { SocketIoComponent } from './socket-io/socket-io.component';
+import {SocketIoComponent} from './socket-io/socket-io.component';
+import {SasstestComponent} from './sasstest/sasstest.component';
+import { DocDetailComponent } from './doc-detail/doc-detail.component';
 
 @NgModule({
     declarations: [
@@ -50,15 +51,17 @@ import { SocketIoComponent } from './socket-io/socket-io.component';
         JsplumbComponent,
         AlertComponent,
         SocketIoComponent,
+        SasstestComponent,
+        DocDetailComponent,
     ],
     imports: [
         BrowserModule,
-        RetainScrollPolyfillModule.forRoot({
-            // Tell the polyfill how long to poll the document after a route change in
-            // order to look for elements that need to be restored to a previous offset.
-            pollDuration: 3000,
-            pollCadence: 50
-        }),
+        // RetainScrollPolyfillModule.forRoot({
+        //     // Tell the polyfill how long to poll the document after a route change in
+        //     // order to look for elements that need to be restored to a previous offset.
+        //     pollDuration: 3000,
+        //     pollCadence: 50
+        // }),
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,

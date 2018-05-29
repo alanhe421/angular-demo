@@ -7,6 +7,7 @@ import {LoginComponent} from './login/login.component';
 import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {SocketIoComponent} from './socket-io/socket-io.component';
+import {DocDetailComponent} from './doc-detail/doc-detail.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -33,21 +34,17 @@ export const appRoutes: Routes = [
         {
             path: 'news',
             loadChildren: './news/news.module#NewsModule'
-        }
-        ,
-// children: [
-//     {
-//         path: 'security1',
-//         loadChildren: './security/security.module#SecurityModule'
-//     },
-//     {
-//         path: 'security2',
-//         loadChildren: './css/css.module#CssModule'
-//     }
-// ]
-
+        },
         {
-            path: 'docs', component: DocsComponent
+            path: 'docs',
+            children: [
+                {
+                    path: '', component: DocsComponent
+                },
+                {
+                    path: ':id', component: DocDetailComponent
+                }
+            ]
         },
         {
             path: 'dagre', component: DagreComponent
