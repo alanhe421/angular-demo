@@ -13,12 +13,7 @@ import {DocDetailComponent} from './doc-detail/doc-detail.component';
  * Created by He on 24/08/2017.
  */
 export const appRoutes: Routes = [
-        {
-            path: '',
-            redirectTo: 'home',
-            pathMatch: 'full'
-        },
-        {path: 'home', component: HomeComponent},
+        {path: '', component: HomeComponent},
         {path: 'socket', component: SocketIoComponent},
 
         // {path: 'parent', loadChildren: './parent/parent.module#ParentModule'},
