@@ -2,12 +2,6 @@
 
 ## Get started
 
-[http://localhost:3001](http://localhost:3001)
+[http://localhost:4200](http://localhost:4200)
 
-
-## Case
-+ 模块懒加载
-+ 安全机制
-+ 路由参数
-+ DAG流程图绘制
-+ socket.io-client
+## issue中相关code，demo中找喽
