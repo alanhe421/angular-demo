@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Modal} from './modal/modal';
+import {Subject} from 'rxjs/Subject';
 
 declare let $: any;
+declare let Mark: any;
 
 @Component({
     selector: 'app-home',
@@ -16,7 +18,12 @@ export class HomeComponent implements OnInit {
 
     isList = false;
 
+    keyword$ = new Subject<string>();
+
     constructor() {
+        this.keyword$.debounceTime(400).subscribe(keyword => {
+            this.performMark(keyword);
+        });
     }
 
     ngOnInit() {
@@ -56,6 +63,16 @@ export class HomeComponent implements OnInit {
         console.log(this.quickSort([3, 1, 2, 4, 19, 4]));
     }
 
+    performMark(keyword: string) {
+        const context = document.querySelector('.home-content');
+        const instance = new Mark(context);
+        instance.unmark();
+        if (keyword) {
+            instance.mark(keyword);
+        }
+    }
+
+
     /**
      * 快速排序
      * @param {Array<number>} a
@@ -77,4 +94,10 @@ export class HomeComponent implements OnInit {
     testDataSet(event) {
         console.debug(event.target.dataset);
     }
+
+    clickIt() {
+        location.href = '/css1111';
+    }
+
+
 }
