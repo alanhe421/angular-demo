@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Modal} from './modal/modal';
 import {Subject} from 'rxjs/Subject';
 
-declare let $: any;
-declare let Mark: any;
+declare const $: any;
+declare const Mark: any;
 
 @Component({
     selector: 'app-home',
