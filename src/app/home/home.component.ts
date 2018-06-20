@@ -64,8 +64,7 @@ export class HomeComponent implements OnInit {
     }
 
     performMark(keyword: string) {
-        const context = document.querySelector('.home-content');
-        const instance = new Mark(context);
+        const instance = new Mark('.home-content');
         instance.unmark();
         if (keyword) {
             instance.mark(keyword);
