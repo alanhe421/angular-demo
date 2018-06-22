@@ -1,7 +1,12 @@
 <div class="widget-share-network">
+    分享：
     <ul class="sn-inline">
-        <li><a (click)="showQrcode()" class="entypo-wechart icon-sn-weixin share-2"
-               title="分享至微信">微信</a></li>
+        <li data-network="weibo">
+            <a href="http://service.weibo.com/share/share.php?url={{shareConfig.url}}&title={{shareConfig.title}}" target="_blank"
+               class="entypo-weibo icon-sn-weibo share-1"
+               tooltip="分享至微博">新浪微博</a>
+        </li>
+        <li><a (click)="showQrcode()" class="entypo-wechart icon-sn-weixin share-2" tooltip="分享至微信">微信</a></li>
     </ul>
 </div>
 
