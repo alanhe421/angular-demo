@@ -7,7 +7,7 @@
     allowing you to quickly test any changes you make to the cli project.
 </div>
 <h4>
-    <a routerLink="./34">doc详情页</a>
+    <a routerLink="./34/">doc详情页</a>
 </h4>
 <h3>ng-content测试</h3>
 <div class="row">
@@ -40,3 +40,24 @@
 </label>
 
 <button class="btn">hello world</button>
+
+
+<h3>
+    连续幻灯片
+</h3>
+
+<div class="img-container">
+    <ul class="list-inline" #slides>
+        <li *ngFor="let it of pics">
+            <img src="assets/img/1.jpg">{{it}}
+        </li>
+    </ul>
+</div>
+
+<div>
+    <button class="btn btn-primary">左</button>
+    <button class="btn btn-default">右</button>
+    <button class="btn btn-default" (click)="stop()">停止</button>
+    <button class="btn btn-default" (click)="autoStart()">继续</button>
+</div>
+
