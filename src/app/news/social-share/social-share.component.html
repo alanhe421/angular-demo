@@ -1,7 +1,17 @@
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style_32x32">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
+<div class="widget-share-network">
+    <ul class="sn-inline">
+        <li><a (click)="showQrcode()" class="entypo-wechart icon-sn-weixin share-2"
+               title="分享至微信">微信</a></li>
+    </ul>
 </div>
-<!-- JiaThis Button END -->
+
+<div class="modal fade" bsModal #qrcodeModal="bs-modal"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+    <div class="modal-dialog share-modal-content">
+        <p class="share-modal-title">打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+        <button type="button" class="share-modal-close" (click)="qrcodeModal.hide()">×</button>
+        <div id="qrcode" #qrcode>
+
+        </div>
+    </div>
+</div>

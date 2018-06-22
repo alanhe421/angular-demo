@@ -1,0 +1,87 @@
+.share-modal-title {
+    color: #777;
+}
+
+.share-modal-content {
+    position: relative;
+    width: 420px;
+    padding: 20px 0 40px;
+    margin: 50px auto;
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+}
+
+.widget-share-network {
+    float: left;
+    color: #999;
+    font-size: 13px;
+}
+
+.sn-inline {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    vertical-align: text-bottom;
+}
+
+.sn-inline li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.sn-inline li a {
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+[class*="icon-sn-"] {
+    display: inline-block;
+    background-image: url(/assets/img/icon-sn.svg);
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    -moz-background-size: auto 56px;
+    -o-background-size: auto 56px;
+    -webkit-background-size: auto 56px;
+    background-size: auto 56px;
+}
+
+[class*="icon-sn-"]:hover {
+    opacity: .8;
+    filter: alpha(opacity=80);
+}
+
+.icon-sn-weibo {
+    background-position: -56px -28px;
+}
+
+.icon-sn-weixin {
+    background-position: -252px -28px;
+}
+
+#qrcode ::ng-deep img {
+    margin: 0 auto;
+}
+
+.share-modal-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
