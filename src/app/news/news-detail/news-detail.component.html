@@ -47,4 +47,4 @@
         <div id="content-detail" [innerHtml]="htmlBlock|safe:'html'"></div>
     </div>
 </div>
-<app-social-share [url]="currentURL"></app-social-share>
+<app-social-share [config]="{url:currentURL,title:docId}"></app-social-share>

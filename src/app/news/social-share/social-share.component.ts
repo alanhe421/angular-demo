@@ -3,6 +3,11 @@ import {ModalDirective} from 'ngx-bootstrap';
 
 declare const QRCode: any;
 
+export interface ShareConfig {
+    url: string;
+    title: string;
+}
+
 @Component({
     selector: 'app-social-share',
     templateUrl: './social-share.component.html',
@@ -11,35 +16,26 @@ declare const QRCode: any;
 export class SocialShareComponent implements OnDestroy, OnChanges {
     @ViewChild('qrcodeModal') qrcodeModal: ModalDirective;
     @ViewChild('qrcode') qrcodeElement: ElementRef;
-    private _title = '';
-    private _url = '';
+    private _config: ShareConfig = {title: '', url: ''};
     qrcode: any = null;
 
     @Input()
-    set title(title: string) {
-        this._title = title ? title : document.title;
+    set config(config: ShareConfig) {
+        this._config.url = config.url ? config.url : location.href;
+        this._config.title = config.title ? config.title : document.title;
     }
 
-    get title() {
-        return this._title;
-    }
-
-    @Input()
-    set url(url: string) {
-        this._url = url ? url : location.href;
-    }
-
-    get url() {
-        return this._url;
+    get config() {
+        return this._config;
     }
 
     showQrcode() {
         this.qrcodeModal.show();
         if (this.qrcode) {
-            this.qrcode.makeCode(this._url); // make another code.
+            this.qrcode.makeCode(this._config.url); // make another code.
         } else {
             this.qrcode = new QRCode(this.qrcodeElement.nativeElement, {
-                text: this._url,
+                text: this._config.url,
                 width: 300,
                 height: 300,
                 colorDark: '#000000',
