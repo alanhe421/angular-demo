@@ -15,7 +15,7 @@ export class NewsDetailComponent implements OnInit {
     docId: string;
     searchId: string;
     htmlBlock = '';
-    currentURL = window.location.href.indexOf('#') === -1 ? window.location.href : window.location.href.substring(0, window.location.href.indexOf('#'));
+    currentURL: string;
 
     constructor(private route: ActivatedRoute, private http: HttpClient, private title: Title) {
     }
@@ -30,6 +30,7 @@ export class NewsDetailComponent implements OnInit {
             this.docId = paramMap.get('id');
             this.searchId = this.route.snapshot.queryParamMap.get('searchId');
             this.setTitle(this.docId);
+            this.currentURL = window.location.href.indexOf('#') === -1 ? window.location.href : window.location.href.substring(0, window.location.href.indexOf('#'));
         });
 
         // let obsCombined = Observable.combineLatest(this.route.queryParams, this.route.params);

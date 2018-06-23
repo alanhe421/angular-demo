@@ -1,39 +1,45 @@
-import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChange, ViewChild} from '@angular/core';
 import {ModalDirective} from 'ngx-bootstrap';
 
 declare const QRCode: any;
-
-export interface ShareConfig {
-    url: string;
-    title: string;
-}
 
 @Component({
     selector: 'app-social-share',
     templateUrl: './social-share.component.html',
     styleUrls: ['./social-share.component.css']
 })
-export class SocialShareComponent implements OnInit, OnDestroy {
+export class SocialShareComponent implements OnDestroy, OnChanges {
     @ViewChild('qrcodeModal') qrcodeModal: ModalDirective;
     @ViewChild('qrcode') qrcodeElement: ElementRef;
-    @Input('config') shareConfig: ShareConfig;
-    qrcode: any;
+    private _title = '';
+    private _url = '';
+    qrcode: any = null;
 
-    constructor() {
-
+    @Input()
+    set title(title: string) {
+        this._title = title ? title : document.title;
     }
 
-    ngOnInit() {
+    get title() {
+        return this._title;
+    }
 
+    @Input()
+    set url(url: string) {
+        this._url = url ? url : location.href;
+    }
+
+    get url() {
+        return this._url;
     }
 
     showQrcode() {
         this.qrcodeModal.show();
         if (this.qrcode) {
-            this.qrcode.makeCode(this.shareConfig.url); // make another code.
+            this.qrcode.makeCode(this._url); // make another code.
         } else {
             this.qrcode = new QRCode(this.qrcodeElement.nativeElement, {
-                text: this.shareConfig.url,
+                text: this._url,
                 width: 300,
                 height: 300,
                 colorDark: '#000000',
@@ -42,12 +48,14 @@ export class SocialShareComponent implements OnInit, OnDestroy {
         }
     }
 
-
-    goToWeibo() {
-
+    ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+        console.log(changes);
     }
 
+
     ngOnDestroy() {
-        this.qrcode.clear(); // clear the code.
+        if (this.qrcode) {
+            this.qrcode.clear(); // clear the code.
+        }
     }
 }
