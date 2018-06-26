@@ -3,18 +3,40 @@
 }
 
 .backtop {
+
+}
+
+.backtop:hover {
+}
+
+.backtop > i {
+}
+
+.float-sidebar {
     padding: 10px;
     position: fixed;
     bottom: 10vh;
     right: 100px;
-    border: 1px solid #eee;
+}
+
+.float-sidebar a {
+    display: block;
+    border: #eee 1px solid;
     background-color: white;
-}
-
-.backtop:hover {
-    cursor: pointer;
-}
-
-.backtop > i {
+    padding: 10px;
     font-size: 3rem;
+}
+
+.float-sidebar > .qrcode {
+    position: relative;
+}
+
+.float-sidebar > .qrcode > div {
+    position: absolute;
+    right: 60px;
+    display: none;
+}
+
+.float-sidebar > .qrcode:hover > div {
+    display: block;
 }

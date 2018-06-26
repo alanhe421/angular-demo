@@ -2,6 +2,13 @@
 <div class="container">
     <router-outlet #outlet></router-outlet>
 </div>
-
-<a class="backtop" (click)="backTop($event)"><i class="fa fa-arrow-up"></i></a>
+<div class="float-sidebar">
+    <a class="backtop" (click)="backTop($event)"><i class="fa fa-arrow-up"></i></a>
+    <a class="qrcode" (click)="backTop($event)">
+        <i class="fa fa-arrow-up"></i>
+        <div class="qrcode-img" @fadeIn>
+            <img src="assets/img/qrcode.png">
+        </div>
+    </a>
+</div>
 <app-footer></app-footer>

@@ -30,6 +30,7 @@ import {DocDetailComponent} from './doc-detail/doc-detail.component';
 import {LinkDirective} from './link.directive';
 import {SimplyScrollComponent} from './simply-scroll/simply-scroll.component';
 import {ModalModule} from 'ngx-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -67,6 +68,7 @@ import {ModalModule} from 'ngx-bootstrap';
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes),
         SharedModule,
         ModalModule.forRoot(),
