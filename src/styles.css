@@ -47,3 +47,39 @@ foreignObject > div > i {
     color: #289de9;
     margin-right: 5px;
 }
+
+mark, .mark {
+    background-color: yellow;
+    color: black;
+}
+
+.img-container {
+    width: 600px;
+    height: 194px;
+    overflow: hidden;
+    border: 1px solid gray;
+    box-shadow: 3px 3px 1px inset;
+}
+
+.img-container ul {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    left: -200px;
+    width: 1600px;
+}
+
+.img-container ul li {
+    padding: 5px 0;
+    float: left;
+}
+
+.img-container ul li > img {
+    width: 200px;
+    display: block;
+}
+
+/*audio, canvas, progress, video {*/
+    /*display: inline-block;*/
+    /*vertical-align: baseline;*/
+/*}*/

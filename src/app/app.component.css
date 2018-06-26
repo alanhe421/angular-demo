@@ -1,3 +1,20 @@
 .container {
     min-height: 80vh;
 }
+
+.backtop {
+    padding: 10px;
+    position: fixed;
+    bottom: 10vh;
+    right: 100px;
+    border: 1px solid #eee;
+    background-color: white;
+}
+
+.backtop:hover {
+    cursor: pointer;
+}
+
+.backtop > i {
+    font-size: 3rem;
+}

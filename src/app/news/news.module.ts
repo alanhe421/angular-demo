@@ -6,6 +6,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import {SocialShareComponent} from './social-share/social-share.component';
+import {News2Component} from './news2/news2.component';
+import {ModalModule, TooltipModule} from 'ngx-bootstrap';
 
 export const routes: Routes = [
     {
@@ -14,6 +16,7 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {path: 'list', component: NewsListComponent},
+    {path: 'list2', component: News2Component},
     {path: 'detail/:id', component: NewsDetailComponent},
 ];
 
@@ -22,9 +25,11 @@ export const routes: Routes = [
         CommonModule,
         FormsModule,
         RouterModule.forChild(routes),
+        ModalModule.forRoot(),
+        TooltipModule.forRoot(),
         SharedModule
     ],
-    declarations: [NewsDetailComponent, NewsListComponent, SocialShareComponent]
+    declarations: [NewsDetailComponent, NewsListComponent, SocialShareComponent, News2Component]
 })
 export class NewsModule {
 }

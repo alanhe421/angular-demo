@@ -13,3 +13,11 @@
 <button type="button" appIsLogin (click)="sayHello()">
     文档下载
 </button>
+<ul class="list-unstyled">
+    <li>
+        <a routerLink="/css" [queryParams]="{a:1}">当前链接</a>
+    </li>
+    <li>
+        <a routerLink="/css" [queryParams]="{b:2}" [replaceUrl]="true">当前链接</a>
+    </li>
+</ul>

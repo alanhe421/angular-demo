@@ -17,7 +17,6 @@ import {ModalComponent} from './home/modal/modal.component';
 import {CloseOutsideDirective} from './home/close-outside.directive';
 import {DagreComponent} from './dagre/dagre.component';
 import {DynamicComponent} from './dynamic/dynamic.component';
-import {ListComponent} from './list/list.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -27,7 +26,10 @@ import {AlertComponent} from './dynamic/exe-alert.component';
 import {SharedModule} from './shared/shared.module';
 import {SocketIoComponent} from './socket-io/socket-io.component';
 import {SasstestComponent} from './sasstest/sasstest.component';
-import { DocDetailComponent } from './doc-detail/doc-detail.component';
+import {DocDetailComponent} from './doc-detail/doc-detail.component';
+import {LinkDirective} from './link.directive';
+import {SimplyScrollComponent} from './simply-scroll/simply-scroll.component';
+import {ModalModule} from 'ngx-bootstrap';
 
 @NgModule({
     declarations: [
@@ -45,7 +47,6 @@ import { DocDetailComponent } from './doc-detail/doc-detail.component';
         CloseOutsideDirective,
         DagreComponent,
         DynamicComponent,
-        ListComponent,
         LoginComponent,
         TreeComponent,
         JsplumbComponent,
@@ -53,7 +54,8 @@ import { DocDetailComponent } from './doc-detail/doc-detail.component';
         SocketIoComponent,
         SasstestComponent,
         DocDetailComponent,
-    ],
+        LinkDirective,
+        SimplyScrollComponent],
     imports: [
         BrowserModule,
         // RetainScrollPolyfillModule.forRoot({
@@ -66,7 +68,8 @@ import { DocDetailComponent } from './doc-detail/doc-detail.component';
         HttpClientModule,
         ReactiveFormsModule,
         RouterModule.forRoot(appRoutes),
-        SharedModule
+        SharedModule,
+        ModalModule.forRoot(),
     ],
     providers: [LoginService],
     bootstrap: [AppComponent],

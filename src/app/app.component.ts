@@ -14,5 +14,9 @@ export class AppComponent implements OnInit {
     ngOnInit() {
 
     }
+
+    backTop(): void {
+        document.documentElement.scrollTop = 0;
+    }
 }
 

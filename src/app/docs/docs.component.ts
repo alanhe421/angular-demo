@@ -19,6 +19,16 @@ export class DocsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.createDomElement();
         this.autoStart();
+        this.copyNode();
+    }
+
+
+    copyNode() {
+        const obj = document.getElementById('hello');
+        const obj2 = obj;
+        obj2.innerText = '哈哈哈哈哈哈';
+        console.log(obj2);
+        // document.body.appendChild(obj2);
     }
 
     stop() {

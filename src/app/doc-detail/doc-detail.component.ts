@@ -19,4 +19,10 @@ export class DocDetailComponent implements OnInit {
         });
     }
 
+
+    openWindow() {
+        const win = window.open('/css', '_blank');
+        win.focus();
+    }
+
 }
