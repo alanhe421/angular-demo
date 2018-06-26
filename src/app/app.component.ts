@@ -15,7 +15,8 @@ export class AppComponent implements OnInit {
 
     }
 
-    backTop(): void {
+    backTop(e): void {
+        e.preventDefault();
         document.documentElement.scrollTop = 0;
     }
 }
