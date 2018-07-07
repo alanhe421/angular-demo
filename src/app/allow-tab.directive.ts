@@ -15,8 +15,8 @@ export class AllowTabDirective {
             const start = e.target.selectionStart;
             const end = e.target.selectionEnd;
             // set textarea value to: text before caret + tab + text after caret
-            e.target.value = e.target.value.substring(0, start) + '  ' + e.target.value.substring(end);
-            e.target.selectionStart = e.target.selectionEnd = start + 2;
+            e.target.value = e.target.value.substring(0, start) + '\t' + e.target.value.substring(end);
+            e.target.selectionStart = e.target.selectionEnd = start + 1;
         }
     }
 
