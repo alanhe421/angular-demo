@@ -37,7 +37,7 @@ export class DocsComponent implements OnInit, AfterViewInit {
 
 
     autoStart() {
-        this.intervalId = setInterval(() => {
+        this.intervalId = window.setInterval(() => {
                 let position = this.getCurrentPosition();
                 if (position === (-200 * 4)) { // 显示宽+初始化位置
                     position = -200; // 无缝循环
