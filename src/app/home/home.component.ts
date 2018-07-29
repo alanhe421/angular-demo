@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Modal} from './modal/modal';
 import {Subject} from 'rxjs/Subject';
+import {HttpClient} from '@angular/common/http';
 
 declare const $: any;
 declare const Mark: any;
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
 
     keyword$ = new Subject<string>();
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.keyword$.debounceTime(400).subscribe(keyword => {
             this.performMark(keyword);
         });
@@ -61,7 +62,15 @@ export class HomeComponent implements OnInit {
         });
         this.test();
         console.log(this.quickSort([3, 1, 2, 4, 19, 4]));
+        this.getUsers().subscribe(res => {
+            console.log(res);
+        });
     }
+
+    getUsers() {
+        return this.http.get('/api/users');
+    }
+
 
     performMark(keyword: string) {
         const instance = new Mark('.home-content');
