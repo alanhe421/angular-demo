@@ -21,13 +21,27 @@ export class HomeComponent implements OnInit {
 
     keyword$ = new Subject<string>();
 
+    name = new Subject<any>(); // 用户名主题
+    name$ = this.name.asObservable();
+    currentDate = new Date();
+
     constructor(private http: HttpClient) {
         this.keyword$.debounceTime(400).subscribe(keyword => {
             this.performMark(keyword);
         });
+
+        window.setInterval(() => {
+            this.currentDate = new Date();
+        }, 1000);
     }
 
     ngOnInit() {
+        this.http.get('mock-data/news.json').subscribe(res => {
+            this.name.next(res);
+        });
+        this.name$.subscribe(res => {
+            // alert(JSON.stringify(res));
+        });
         $(function () {
             $.contextMenu({
                 selector: '.context-menu-one',
