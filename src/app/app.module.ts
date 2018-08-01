@@ -31,6 +31,7 @@ import {LinkDirective} from './link.directive';
 import {SimplyScrollComponent} from './simply-scroll/simply-scroll.component';
 import {ModalModule} from 'ngx-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { WallpaperComponent } from './wallpaper/wallpaper.component';
 
 @NgModule({
     declarations: [
@@ -56,7 +57,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         SasstestComponent,
         DocDetailComponent,
         LinkDirective,
-        SimplyScrollComponent],
+        SimplyScrollComponent,
+        WallpaperComponent],
     imports: [
         BrowserModule,
         // RetainScrollPolyfillModule.forRoot({

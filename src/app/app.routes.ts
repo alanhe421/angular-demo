@@ -8,6 +8,7 @@ import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {SocketIoComponent} from './socket-io/socket-io.component';
 import {DocDetailComponent} from './doc-detail/doc-detail.component';
+import {WallpaperComponent} from './wallpaper/wallpaper.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -58,6 +59,9 @@ export const appRoutes: Routes = [
         },
         {
             path: 'user', loadChildren: './user/user.module#UserModule'
+        },
+        {
+            path: 'wallpaper', component: WallpaperComponent
         }
     ]
 ;
