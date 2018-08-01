@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
     keyword$ = new Subject<string>();
 
     name = new Subject<any>(); // 用户名主题
-    name$ = this.name.asObservable();
     currentDate = new Date();
 
     constructor(private http: HttpClient) {
@@ -39,8 +38,8 @@ export class HomeComponent implements OnInit {
         this.http.get('mock-data/news.json').subscribe(res => {
             this.name.next(res);
         });
-        this.name$.subscribe(res => {
-            // alert(JSON.stringify(res));
+        this.name.subscribe(res => {
+            console.log(res);
         });
         $(function () {
             $.contextMenu({
