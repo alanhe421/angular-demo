@@ -9,6 +9,7 @@ import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {SocketIoComponent} from './socket-io/socket-io.component';
 import {DocDetailComponent} from './doc-detail/doc-detail.component';
 import {WallpaperComponent} from './wallpaper/wallpaper.component';
+import {CounterComponent} from './counter/counter.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -62,6 +63,9 @@ export const appRoutes: Routes = [
         },
         {
             path: 'wallpaper', component: WallpaperComponent
+        },
+        {
+            path: 'counter', component: CounterComponent
         }
     ]
 ;

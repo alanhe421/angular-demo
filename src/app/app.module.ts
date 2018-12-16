@@ -32,6 +32,9 @@ import {SimplyScrollComponent} from './simply-scroll/simply-scroll.component';
 import {ModalModule} from 'ngx-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { WallpaperComponent } from './wallpaper/wallpaper.component';
+import {StoreModule} from '@ngrx/store';
+import {counterReducer} from './counter.reducer';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
     declarations: [
@@ -58,22 +61,18 @@ import { WallpaperComponent } from './wallpaper/wallpaper.component';
         DocDetailComponent,
         LinkDirective,
         SimplyScrollComponent,
-        WallpaperComponent],
+        WallpaperComponent,
+        CounterComponent],
     imports: [
         BrowserModule,
-        // RetainScrollPolyfillModule.forRoot({
-        //     // Tell the polyfill how long to poll the document after a route change in
-        //     // order to look for elements that need to be restored to a previous offset.
-        //     pollDuration: 3000,
-        //     pollCadence: 50
-        // }),
+        StoreModule.forRoot({ count: counterReducer }),
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes),
         SharedModule,
-        ModalModule.forRoot(),
+        ModalModule.forRoot()
     ],
     providers: [LoginService],
     bootstrap: [AppComponent],
