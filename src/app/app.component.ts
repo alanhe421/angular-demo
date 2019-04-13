@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {fadeIn} from './animations/fade-in';
+import {Subject} from 'rxjs/Subject';
 
 @Component({
     selector: 'app-root',
@@ -15,6 +16,8 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+
+
     }
 
     backTop(e): void {

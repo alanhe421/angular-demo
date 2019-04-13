@@ -19,7 +19,7 @@ import {DagreComponent} from './dagre/dagre.component';
 import {DynamicComponent} from './dynamic/dynamic.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TreeComponent} from './tree/tree.component';
 import {JsplumbComponent} from './jsplumb/jsplumb.component';
 import {AlertComponent} from './dynamic/exe-alert.component';
@@ -31,10 +31,12 @@ import {LinkDirective} from './link.directive';
 import {SimplyScrollComponent} from './simply-scroll/simply-scroll.component';
 import {ModalModule} from 'ngx-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { WallpaperComponent } from './wallpaper/wallpaper.component';
+import {WallpaperComponent} from './wallpaper/wallpaper.component';
 import {StoreModule} from '@ngrx/store';
 import {counterReducer} from './counter.reducer';
-import { CounterComponent } from './counter/counter.component';
+import {CounterComponent} from './counter/counter.component';
+import {TokenInterceptor} from './core/token-interceptor';
+import {AuthService} from './core/auth-service';
 
 @NgModule({
     declarations: [
@@ -65,7 +67,7 @@ import { CounterComponent } from './counter/counter.component';
         CounterComponent],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({ count: counterReducer }),
+        StoreModule.forRoot({count: counterReducer}),
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
@@ -74,9 +76,21 @@ import { CounterComponent } from './counter/counter.component';
         SharedModule,
         ModalModule.forRoot()
     ],
-    providers: [LoginService],
+    providers: [
+        LoginService,
+        AuthService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent],
-    entryComponents: [AlertComponent], // 动态组件
+    entryComponents: [AlertComponent],
 })
 export class AppModule {
+
+    constructor() {
+        localStorage.setItem('token', '11111');
+    }
 }
