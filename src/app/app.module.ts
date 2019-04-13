@@ -91,6 +91,6 @@ import {AuthService} from './core/auth-service';
 export class AppModule {
 
     constructor() {
-        localStorage.setItem('token', '11111');
+        // localStorage.setItem('token', '11111');
     }
 }
