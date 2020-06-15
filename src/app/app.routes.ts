@@ -10,6 +10,7 @@ import {SocketIoComponent} from './socket-io/socket-io.component';
 import {DocDetailComponent} from './doc-detail/doc-detail.component';
 import {WallpaperComponent} from './wallpaper/wallpaper.component';
 import {CounterComponent} from './counter/counter.component';
+import {LifeComponent} from './life/life.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -17,6 +18,7 @@ import {CounterComponent} from './counter/counter.component';
 export const appRoutes: Routes = [
         {path: '', component: HomeComponent},
         {path: 'socket', component: SocketIoComponent},
+        {path: 'life', component: LifeComponent},
 
         // {path: 'parent', loadChildren: './parent/parent.module#ParentModule'},
         {path: 'css', loadChildren: './css/css.module#CssModule'},

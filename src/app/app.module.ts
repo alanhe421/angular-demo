@@ -37,6 +37,8 @@ import {counterReducer} from './counter.reducer';
 import {CounterComponent} from './counter/counter.component';
 import {TokenInterceptor} from './core/token-interceptor';
 import {AuthService} from './core/auth-service';
+import {LifeComponent} from './life/life.component';
+import {LifeChildrenComponent} from './life/life-children.component';
 
 @NgModule({
     declarations: [
@@ -64,7 +66,9 @@ import {AuthService} from './core/auth-service';
         LinkDirective,
         SimplyScrollComponent,
         WallpaperComponent,
-        CounterComponent],
+        CounterComponent,
+        LifeComponent,
+        LifeChildrenComponent],
     imports: [
         BrowserModule,
         StoreModule.forRoot({count: counterReducer}),
