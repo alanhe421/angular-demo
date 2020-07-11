@@ -11,6 +11,7 @@ import {DocDetailComponent} from './doc-detail/doc-detail.component';
 import {WallpaperComponent} from './wallpaper/wallpaper.component';
 import {CounterComponent} from './counter/counter.component';
 import {LifeComponent} from './life/life.component';
+import {FormComponent} from './form/form.component';
 
 /**
  * Created by He on 24/08/2017.
@@ -68,6 +69,9 @@ export const appRoutes: Routes = [
         },
         {
             path: 'counter', component: CounterComponent
+        },
+        {
+            path: 'form', component: FormComponent
         }
     ]
 ;

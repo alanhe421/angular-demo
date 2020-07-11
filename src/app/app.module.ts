@@ -39,6 +39,7 @@ import {TokenInterceptor} from './core/token-interceptor';
 import {AuthService} from './core/auth-service';
 import {LifeComponent} from './life/life.component';
 import {LifeChildrenComponent} from './life/life-children.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
     declarations: [
@@ -68,7 +69,8 @@ import {LifeChildrenComponent} from './life/life-children.component';
         WallpaperComponent,
         CounterComponent,
         LifeComponent,
-        LifeChildrenComponent],
+        LifeChildrenComponent,
+        FormComponent],
     imports: [
         BrowserModule,
         StoreModule.forRoot({count: counterReducer}),
