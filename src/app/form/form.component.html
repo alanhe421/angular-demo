@@ -1,13 +1,18 @@
 <p>
-  form works!
-  <input [(ngModel)]="username"/>
+    form works!
+    <input [ngModel]="username" (ngModelChange)="username=$event"/>
 </p>
 
-
+{{
+treeData
+}}
 <h3>
-  I am {{
+    I am {{
 
-  username
+    username
 
-  }}
+    }}，
+    age {{age}}
 </h3>
+
+测试脏检查

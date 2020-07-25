@@ -39,7 +39,8 @@ import {TokenInterceptor} from './core/token-interceptor';
 import {AuthService} from './core/auth-service';
 import {LifeComponent} from './life/life.component';
 import {LifeChildrenComponent} from './life/life-children.component';
-import { FormComponent } from './form/form.component';
+import {FormComponent} from './form/form.component';
+import {AgeInputerComponent} from './form/age-inputer.component';
 
 @NgModule({
     declarations: [
@@ -70,7 +71,8 @@ import { FormComponent } from './form/form.component';
         CounterComponent,
         LifeComponent,
         LifeChildrenComponent,
-        FormComponent],
+        FormComponent,
+        AgeInputerComponent],
     imports: [
         BrowserModule,
         StoreModule.forRoot({count: counterReducer}),
